@@ -3,7 +3,6 @@
 debug settings:
 */
 
-
 define("host", "localhost:3306");
 define("db", "aventurama");
 define("user", "root");
