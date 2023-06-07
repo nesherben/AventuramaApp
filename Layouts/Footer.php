@@ -2,8 +2,6 @@
 ?>
 <footer class="bg-dark d-flex w-100 justify-content-between" id="footer">
   
-   
-      
     <ul class="d-flex align-items-center" style="
       list-style: none;
       margin: 0;
