@@ -1,0 +1,25 @@
+@media (max-width: 800px) {
+
+  #usuInfo {
+    width: 100%;
+  }
+
+  .cards-tables {
+    width: 100%;
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 800px) {
+
+
+
+  #usuInfo {
+    width: 35%;
+  }
+
+  .cards-tables {
+    width: 64%;
+  }
+
+}

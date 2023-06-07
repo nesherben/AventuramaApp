@@ -1,0 +1,146 @@
+body {
+  height: 100vh;
+  background-color: #F0FDEF !important;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+
+}
+
+.overflex {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+}
+
+.content {
+  height: 100% !important;
+  min-height: 200px;
+  align-items: stretch;
+  /*content ademas es overflex*/
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+}
+
+#header {
+  background-color: #224507 !important;
+  color: white !important;
+  position: sticky;
+  z-index: 1000;
+  height: 2.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#footer {
+  background-color: #224507 !important;
+  position: sticky;
+  z-index: 1000;
+  height: 2.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+form {
+  margin: 0;
+}
+
+.btn-dark {
+  background-color: #224507 !important;
+  border-color: #224507 !important;
+  color: #fff !important;
+  transition: 0.2s;
+}
+
+.btn-dark:hover {
+  background-color: #224507 !important;
+  border-color: #224507 !important;
+  color: #fff !important;
+  filter: brightness(1.2);
+}
+
+.btn-primary {
+  background-color: #3D7E0A !important;
+  border-color: #3D7E0A !important;
+  color: #fff !important;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #3D7E0A !important;
+  border-color: #3D7E0A !important;
+  color: #fff !important;
+  filter: brightness(1.2);
+}
+
+
+.table-sticky thead tr {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #3D7E0A;
+  color: white !important;
+  top: 0;
+  z-index: 1;
+}
+
+.head-sticky {
+  width: 99% !important;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #224507;
+  top: 0;
+  z-index: 1;
+  border-radius: 0% 20px 20px 0%;
+  color: white !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F0FDEF;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #87AC84;
+}
+
+.card-header,
+.modal-header {
+  background-color: #224507 !important;
+  color: white !important;
+}
+
+.btn-close {
+  background-color: white !important;
+}
+
+.modal-title {
+  color: white !important;
+}
+
+.card-header h5,
+.card-header h6,
+.card-header h4,
+.card-header h3,
+.card-header h2,
+.card-header h1,
+.card-header a {
+  background-color: #224507 !important;
+  color: white !important;
+}
+
+form .card-body {
+  background-color: white !important;
+
+}
+
+.card-footer {
+  background-color: #E4F5D7 !important;
+  color: white !important;
+}

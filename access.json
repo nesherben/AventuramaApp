@@ -1,0 +1,56 @@
+{
+    "sites":[
+        {
+            "site": "",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "login",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "recoverPassword",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "signup",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "success",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "adminpage",
+            "access": "private",
+            "role": "admin"
+        },
+        {
+            "site": "home",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "inscripcion",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "perfil",
+            "access": "private",
+            "role": "user"
+        }
+    ],
+
+    "default-sites": {
+        "user": "home",
+        "admin": "adminpage"
+    }
+
+
+}
