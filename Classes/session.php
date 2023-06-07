@@ -6,8 +6,9 @@ class Session{
 
     function __construct()
     {
+        error_log("sessions STATUS = ".session_status());
         if(session_status() == PHP_SESSION_NONE){
-            session_start();
+            session_start(['cookie_lifetime' => 86400,]);
         }
     }
 
@@ -17,6 +18,7 @@ class Session{
     }
 
     function getCurrentUser(){
+        error_log("Sessions::".session_status()." sesion = ".$_SESSION['user']);
         return $_SESSION[$this->sessionName];
     }
 

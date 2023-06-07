@@ -1,6 +1,6 @@
 <?php 
 
-class HomeModel extends Model{
+class InicioModel extends Model{
     public $codigo;
     public $nombre;
     public $descripcion;
@@ -26,7 +26,7 @@ class HomeModel extends Model{
             $items = [];
             $query = $this->query('SELECT * FROM tipos_act JOIN categorias_act ON tipos_act.CT_ACTIVIDAD = categorias_act.CD_CATEGORIA where DESACTIVADO = 0 order by CT_ACTIVIDAD desc');
             while($p = $query->fetch(PDO::FETCH_ASSOC)){
-                $item = new HomeModel();
+                $item = new InicioModel();
                 $item->setCodigo($p['CD_ACTIVIDAD']);
                 $item->setNombre($p['NM_ACTIVIDAD']);
                 $item->setDescripcion($p['DS_ACTIVIDAD']);
@@ -36,7 +36,7 @@ class HomeModel extends Model{
             }
             return $items;
         }catch(PDOException $e){
-            error_log('HOME_MODEL::GET_ALL->PDOException ' . $e);
+            error_log('Inicio_MODEL::GET_ALL->PDOException ' . $e);
             return [];
         }
     }
@@ -46,14 +46,14 @@ class HomeModel extends Model{
             $query = $this->prepare('SELECT * FROM tipos_act WHERE CD_ACTIVIDAD = :codigo');
             $query->execute(['codigo' => $codigo]);
             $p = $query->fetch(PDO::FETCH_ASSOC);
-            $item = new HomeModel();
+            $item = new InicioModel();
             $item->setCodigo($p['CD_ACTIVIDAD']);
             $item->setNombre($p['NM_ACTIVIDAD']);
             $item->setDescripcion($p['DS_ACTIVIDAD']);
             $item->setCategoria($p['CT_ACTIVIDAD']);
             return $item;
         }catch(PDOException $e){
-            error_log('HOME_MODEL::GET->PDOException ' . $e);
+            error_log('Inicio_MODEL::GET->PDOException ' . $e);
             return null;
         }
     }

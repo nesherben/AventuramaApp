@@ -1,8 +1,8 @@
 <?php
 
-require_once("Models/NinoModel.php");
-require_once("Models/NinoSanModel.php");
-require_once("Models/ReservasModel.php");
+require_once("Models/ninoModel.php");
+require_once("Models/ninoSanModel.php");
+require_once("Models/reservasModel.php");
 
 class Inscripcion extends SessionController{
     private $user;

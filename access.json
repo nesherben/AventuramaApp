@@ -31,7 +31,7 @@
             "role": "admin"
         },
         {
-            "site": "home",
+            "site": "inicio",
             "access": "private",
             "role": "user"
         },
@@ -48,7 +48,7 @@
     ],
 
     "default-sites": {
-        "user": "home",
+        "user": "inicio",
         "admin": "adminpage"
     }
 

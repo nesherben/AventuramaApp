@@ -12,7 +12,7 @@ class View{
 
         $this-> handleMessages();
 
-        require 'Views/'.$name.'.php';
+        require_once('Views/'.$name.'.php');
     }
 
     function handleMessages(){

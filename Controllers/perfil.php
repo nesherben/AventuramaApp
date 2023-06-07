@@ -1,8 +1,8 @@
 <?php
-require_once("Models/NinoModel.php");
-require_once("Models/NinoSanModel.php");
+require_once("Models/ninoModel.php");
+require_once("Models/ninoSanModel.php");
 require_once("Models/reservasModel.php");
-require_once("Models/TutoresModel.php");
+require_once("Models/tutoresModel.php");
 require_once("Models/pdfModel.php");
 class perfil extends SessionController
 {
@@ -11,7 +11,7 @@ class perfil extends SessionController
     {
         parent::__construct();
         $this->user = $this->getUserSession();
-        error_log("Home::CONSTRUCT -> Inicio de la clase Home");
+        error_log("inicio::CONSTRUCT -> Inicio de la clase inicio");
     }
 
     function render()
@@ -251,7 +251,7 @@ class perfil extends SessionController
         }
     }
 
-    function pagarReserva($idReserva)
+    function pagarReserva($idReserva = ['idReserva' => null])
     {
         //esto está provisional para que se pueda pagar la reserva
         //WIP hay que montar la plataforma de pago para que se pueda pagar
@@ -336,7 +336,7 @@ class perfil extends SessionController
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
 
         // Enviar los datos binarios de la imagen al navegador
-        return $data["DNI"];
+        return $data["TARJETA"];
     }
     function infoTutor()
     {

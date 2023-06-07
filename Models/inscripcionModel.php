@@ -31,7 +31,7 @@ class InscripcionModel extends Model{
             $item->setTurnos($p['TURNOS']);
             return $item;
         }catch(PDOException $e){
-            error_log('HOME_MODEL::GET->PDOException ' . $e);
+            error_log('Inicio_MODEL::GET->PDOException ' . $e);
             return null;
         }
     }
@@ -42,7 +42,7 @@ class InscripcionModel extends Model{
             $p = $query->fetch(PDO::FETCH_ASSOC);            
             return $p > 0;
         }catch(PDOException $e){
-            error_log('HOME_MODEL::GET->PDOException ' . $e);
+            error_log('Inicio_MODEL::GET->PDOException ' . $e);
             return null;
         }
     }

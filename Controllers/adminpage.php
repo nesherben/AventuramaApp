@@ -17,12 +17,12 @@ class Adminpage extends SessionController
         parent::__construct();
         $this->user = $this->getUserSession();
 
-        error_log("Home::CONSTRUCT -> Inicio de la clase adminpage");
+        error_log("inicio::CONSTRUCT -> Inicio de la clase adminpage");
     }
 
     function render()
     {
-        error_log("Home::RENDER -> " . $this->user->getEmail());
+        error_log("inicio::RENDER -> " . $this->user->getEmail());
         $this->view->render('adminpage', ['user' => $this->user, 'ninos' => $this->getNinos(), 'reservas' => $this->getReservas(), 'actividades' => $this->getActividades(), 'turnos' => $this->getTurnos(), 'categorias' => $this->getCategorias()]);
     }
     function getTurnos()

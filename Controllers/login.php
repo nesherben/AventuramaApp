@@ -34,8 +34,9 @@
 
                 if($user != null){
                     error_log("Login::LOGIN -> Usuario encontrado");
+                    error_log("Login::LOGIN -> Usuario: ".$user->getEmail()."");
                     $this->initialize($user);
-                    $this->redirect('home', []);
+                    $this->redirect('inicio', []);
                 }
                 else{
                     error_log("Login::LOGIN -> Usuario no encontrado o desactivado");

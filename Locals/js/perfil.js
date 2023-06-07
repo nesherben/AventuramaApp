@@ -5,7 +5,7 @@ var url = document.querySelector('.baseUrl').value;
 botones.forEach(btn => {
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url + '/perfil/getNino',
+            url: url + 'perfil/getNino',
             method: 'POST',
             data: { 'id': btn.value },
             success: function (datos) {
@@ -70,7 +70,7 @@ var botonesTutor = document.querySelectorAll(".btnTutor");
 botonesTutor.forEach(btn => {
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url + '/perfil/getTutor',
+            url: url + 'perfil/getTutor',
             method: 'POST',
             data: { 'idTutor': btn.value },
             success: function (datos) {

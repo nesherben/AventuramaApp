@@ -33,7 +33,7 @@ class NinoSanModel extends Model{
 
   public function registrarInfoNino(string $id){
     try{
-      $query = $this->prepare('INSERT INTO info_sanitaria (id_nino, alergia_Med, alergia_Ali, lesion, med_actual, motivo_Med, discapacidad, reac_Alergica, vacunado, antitetanica, natacion, aficiones, observaciones) VALUES (:id,:numTarjeta, :alergiasMedicas, :alergiasAlimentarias, :lesion, :medicacion, :motivosMedicacion, :discapacidad, :reaccionesAlergicas, :vacunado, :tetanos, :nadar, :aficiones, :observacionesMed)');
+      $query = $this->prepare('INSERT INTO info_sanitaria (id_nino, alergia_Med, alergia_Ali, lesion, med_actual, motivo_Med, discapacidad, reac_Alergica, vacunado, antitetanica, natacion, aficiones, observaciones) VALUES (:id, :alergiasMedicas, :alergiasAlimentarias, :lesion, :medicacion, :motivosMedicacion, :discapacidad, :reaccionesAlergicas, :vacunado, :tetanos, :nadar, :aficiones, :observacionesMed)');
     $query->execute([
       'id' => $id,
       'alergiasMedicas' => $this->alergiasMedicas,

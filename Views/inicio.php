@@ -1,7 +1,7 @@
 <?php
 require_once("Layouts/Header.php");
 ?>
-<link rel="stylesheet" href="Locals/css/home.css">
+<link rel="stylesheet" href="Locals/css/inicio.css">
 <section class="content">
   <div class="container-fluid">
 

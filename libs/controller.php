@@ -47,7 +47,7 @@ class Controller{
         if($params != ''){
             $params = "?" . $params;
         }
-        header("Location: " .baseUrl."". $route . $params);
+        header("Location: " ."/". $route . $params);
     }
 }
 

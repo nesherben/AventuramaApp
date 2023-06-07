@@ -8,7 +8,7 @@ class LoginModel extends Model{
     
     public function login($email, $password){
         try{
-            $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE email = :email and activado = 1');
+            $query = $this->db->connect()->prepare('SELECT * FROM `usuarios` WHERE `email` = :email and `activado` = 1');
             $query->execute(['email' => $email]);
 
             if($query->rowCount() == 0){

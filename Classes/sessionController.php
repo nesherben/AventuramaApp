@@ -27,7 +27,6 @@ class SessionController extends Controller{
         return $this->userid;
     }
     function init(){
-        error_log("Sessions::CONSTRUCT -> Inicio de la clase Sessions");
         $this->session = new Session();
         $json = $this->getJsonFileConfig();
         $this->sites = $json['sites'];
@@ -37,6 +36,7 @@ class SessionController extends Controller{
     }
 
     function initialize($user){
+        $this->user = $user;
         $this->session->setCurrentUser($user->getId());
         $this->authorizeAccess($user->getRole());
     }
@@ -56,6 +56,7 @@ class SessionController extends Controller{
         return $this->user;
     }
     public function validateSession(){
+        
         if($this->existSession()){
             $role = $this->getUserSessionData()->getRole();
             if($this->isPublic()){
@@ -85,12 +86,16 @@ class SessionController extends Controller{
    
     function existSession(){
         if(!$this->session->exist()){
+            error_log("Sessions::".session_status()." sesion = ".isset($_SESSION['user']));
             return false;
         }
         if($this->session->getCurrentUser() == null){
+            error_log("Sessions::".session_status()." sesion = ". $_SESSION['user']);
+
             return false;
         }
         $userid = $this->session->getCurrentUser();
+        error_log("Sessions::".session_status()." sesion = ". $_SESSION['user']);
         if($userid) return true;
         return false;
     }
@@ -107,8 +112,10 @@ class SessionController extends Controller{
     }
     function isAuthorized($role){
         $currentURL = $this->getCurrentPage();
-        $currentURL = preg_replace("/\?.*/", "", $currentURL);
+        error_log("isAuthorized -> URL actual: ".$currentURL."");
 
+        $currentURL = preg_replace("/\?.*/", "", $currentURL);
+        error_log("isAuthorized -> URL actual: ".$currentURL."");
         for($i = 0; $i < sizeof($this->sites); $i++){
             if($currentURL == $this->sites[$i]['site'] && $this->sites[$i]['role'] == $role){
                 return true;
@@ -126,7 +133,6 @@ class SessionController extends Controller{
             break;
             default:
                 return false;
-            break;
         }
     }
 

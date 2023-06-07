@@ -5,7 +5,7 @@ var url = document.querySelector('.baseUrl').value;
 botones.forEach(btn => {    
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url+'/inscripcion/getNino',
+            url: url+'inscripcion/getNino',
             method: 'POST',
             data: {'id': btn.value},
             success: function(datos) {

@@ -1,6 +1,6 @@
 <?php
 
-    class Home extends SessionController{
+    class inicio extends SessionController{
         private $user;
         public $model;
         public $lista;
@@ -10,12 +10,11 @@
             parent::__construct();
            
             $this->user = $this->getUserSession();
-            error_log("Home::CONSTRUCT -> Inicio de la clase Home"); 
+            error_log("Inicio::CONSTRUCT -> Inicio de la clase Inicio"); 
         }
 
-        function render(){
-            error_log("Home::RENDER -> ".$this->user->getEmail());
-            $this->view->render('home',['user' => $this->user, 'lista' => $this->construirLista()]);
+        function render(){            
+            $this->view->render('inicio', ['user' => $this->user, 'lista' => $this->construirLista()]);
         }
 
         function construirLista(){            
@@ -24,11 +23,11 @@
             foreach($items as $item){
                 $categoria = $item->getCategoria();
                 if(!array_key_exists($categoria, $categorias)){
-                    error_log("Home::RENDER -> ".$categoria."");
+                    error_log("Inicio::RENDER -> ".$categoria."");
                     $categorias[$categoria] = array();
               }
             }
-            error_log("Home::RENDER -> ".count($categorias)."");
+            error_log("Inicio::RENDER -> ".count($categorias)."");
             foreach($items as $item){
               $nombre = $item->getNombre();
               $desc = $item->getDescripcion();
@@ -38,7 +37,7 @@
               foreach($categorias as $key => $cat){
                 if($key == $categoria){
                   array_push($categorias[$key], array("nombre"=>$nombre, "descripcion"=>$desc, "codigo"=>$codigo, "categoria"=>$categoria, "imagen"=>$imagen));
-                    error_log("Home::RENDER -> ".count($cat)."");
+                    error_log("Inicio::RENDER -> ".count($cat)."");
                   }
                     
                 }                

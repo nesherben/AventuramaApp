@@ -19,7 +19,7 @@ var botones = document.querySelectorAll(".btnActividad");
 botones.forEach(btn => {
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url + '/adminpage/getActividad',
+            url: url + 'adminpage/getActividad',
             method: 'POST',
             data: { 'codigo': btn.value },
             success: function (datos) {
@@ -52,7 +52,7 @@ var botones2 = document.querySelectorAll(".btnEstados");
 botones2.forEach(btn => {
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url + '/adminpage/getEstadosActividad',
+            url: url + 'adminpage/getEstadosActividad',
             method: 'POST',
             data: { 'codigo': btn.value },
             success: function (datos) {
@@ -72,7 +72,7 @@ function datosToModal(datos) {
 
         turnosEstadoActividad.innerHTML += `
         <div>
-        <form action="${url}/adminpage/setEstadosActividad" class="d-flex justify-content-between" method="POST">
+        <form action="${url}adminpage/setEstadosActividad" class="d-flex justify-content-between" method="POST">
         
             <label value="${elem.TURNO}">${elem.DS_TURNO ?? "Turno único"}</label>
             <label value="${elem.ESTADO}">${elem.DS_ESTADO}</label>  
@@ -92,7 +92,7 @@ var botones3 = document.querySelectorAll(".btnInfos");
 botones3.forEach(btn => {
     btn.addEventListener('click', () => {
         $.ajax({
-            url: url + '/adminpage/getAllInfo',
+            url: url + 'adminpage/getAllInfo',
             method: 'POST',
             data: { 'id_nino': btn.value },
             success: function (datos) {

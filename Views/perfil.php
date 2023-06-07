@@ -148,7 +148,7 @@ $tutores = $this->d['tutores'];
                         </td>
                         <td class="text-nowrap"><?php echo $nino["NOMBRE"] . " " . $nino["APELLIDOS"] ?></td>
                         <td class="text-nowrap">
-                          <?php
+                          <?php 
                           $fecha_js = $nino["FH_NACIMIENTO"]; // fecha en formato JavaScript
                           $fecha_nacimiento = date_create_from_format('Y-m-d', $fecha_js); // convertir la fecha a un formato PHP
                           $hoy = new DateTime(); // fecha actual

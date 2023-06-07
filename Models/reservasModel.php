@@ -210,7 +210,7 @@ class reservasModel extends Model
         'precio' => $this->precio ?? '0'
       ]);
 
-      $query2 = $this->prepare('SELECT EMAIL FROM USUARIOS U JOIN reservas R ON R.ID_USUARIO = U.ID_USUARIO WHERE ID_RESERVA = :id');
+      $query2 = $this->prepare('SELECT EMAIL FROM usuarios U JOIN reservas R ON R.ID_USUARIO = U.ID_USUARIO WHERE ID_RESERVA = :id');
       $query2->execute([
         'id' => $this->id,
       ]);
