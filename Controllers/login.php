@@ -43,7 +43,10 @@
                 }
 
             }
-            return '';
+            else{
+                error_log("Login::LOGIN -> Usuario o contraseña vacios");
+                $this->redirect('', ['error' => 'Usuario o contraseña vacios']);
+            }
         }
 
         function recuperarPassword(){

@@ -208,7 +208,7 @@ class UserModel extends Model
             $query->execute(['email' => $email]);
             $user = $query->fetch(PDO::FETCH_ASSOC);
             if ($user && password_verify($password, $user['password'])) {
-                return $user; //todo: check (antes new UserModel())
+                return new UserModel();
             } else {
                 return null;
             }

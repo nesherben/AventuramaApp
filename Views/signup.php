@@ -45,7 +45,7 @@ require_once 'Layouts/Header.php';
                 </div>
             </div>
             <div class="d-flex flex-wrap text-nowrap card-footer gap-3 justify-content-between">
-                <a href="" type="button" class="col btn btn-primary btn-block">Cancelar</a>
+                <a href="/" type="button" class="col btn btn-primary btn-block">Cancelar</a>
                 <button type="submit" id="registrobtn" disabled class="col btn btn-primary btn-block">Registrarse</button>
             </div>
         </form>
