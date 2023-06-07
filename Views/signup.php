@@ -1,6 +1,6 @@
 <?php
 
-require_once baseUrl.'Layouts/Header.php';
+require_once 'Layouts/Header.php';
 ?>
 <section class="content">
 
@@ -11,7 +11,7 @@ require_once baseUrl.'Layouts/Header.php';
             <a href="#" data-bs-target="#AccModal" data-bs-toggle="modal">¿necesitas activar tu cuenta?</a>
         </div>
 
-        <form action="<?php echo baseUrl ?>signup/newUser" id="formSignup" method="POST">
+        <form action="signup/newUser" id="formSignup" method="POST">
             <div class="card-body">
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -45,7 +45,7 @@ require_once baseUrl.'Layouts/Header.php';
                 </div>
             </div>
             <div class="d-flex flex-wrap text-nowrap card-footer gap-3 justify-content-between">
-                <a href="<?php echo baseUrl ?>" type="button" class="col btn btn-primary btn-block">Cancelar</a>
+                <a href="" type="button" class="col btn btn-primary btn-block">Cancelar</a>
                 <button type="submit" id="registrobtn" disabled class="col btn btn-primary btn-block">Registrarse</button>
             </div>
         </form>
@@ -59,7 +59,7 @@ require_once baseUrl.'Layouts/Header.php';
                 <h4>Reenviar activación</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?php echo baseUrl ?>signup/reactivate" method="POST">
+            <form action="signup/reactivate" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -79,8 +79,8 @@ require_once baseUrl.'Layouts/Header.php';
     </div>
 </div>
 
-<script src="<?php echo baseUrl ?>Locals/js/signup.js"></script>
+<script src="Locals/js/signup.js"></script>
 
 <?php
-require_once baseUrl.'Layouts/Footer.php';
+require_once 'Layouts/Footer.php';
 ?>

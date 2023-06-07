@@ -1,5 +1,5 @@
 <?php   
-    require_once baseUrl.'Layouts/Header.php';
+    require_once 'Layouts/Header.php';
 ?>
 
 <section class="content">
@@ -9,5 +9,5 @@
 </div>
 </section>
 <?php
-    require_once baseUrl.'Layouts/Footer.php';
+    require_once 'Layouts/Footer.php';
 ?>

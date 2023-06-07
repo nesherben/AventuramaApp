@@ -6,7 +6,7 @@ $ninos = $this->d['ninos'];
 $tutores = $this->d['tutores'];
 ?>
 
-<link rel="stylesheet" href="<?php echo baseUrl ?>locals/css/perfil.css">
+<link rel="stylesheet" href="Locals/css/perfil.css">
 
 <section class="content" style="zoom: 80%">
   <div class="container-fluid overflex h-100">
@@ -26,7 +26,7 @@ $tutores = $this->d['tutores'];
             <p class="card-text"><?php echo $user->telefono ?></p>
             <h6>DNI/NIE:</h6>
             <?php if ($user->tieneDNI) : ?>
-              <a href="<?php echo baseUrl ?>perfil/DescargarDniUsuario" class="card-text mb-2"><?php echo $user->dni ?></a>
+              <a href="perfil/DescargarDniUsuario" class="card-text mb-2"><?php echo $user->dni ?></a>
             <?php else : ?>
               <p class="card-text mb-2"><?php echo $user->dni ?></p>
             <?php endif; ?>
@@ -99,7 +99,7 @@ $tutores = $this->d['tutores'];
                               <div class="d-flex flex-nowrap gap-1">
                                 <button class="btn btn-sm btn-primary btnTutor" data-bs-target="#infoTutor" data-bs-toggle="modal" value="<?php echo $tutor['ID_TUTOR'] ?>">Ver datos</button>
                               </div>
-                              <form action="<?php echo baseUrl ?>perfil/borrarTutor" method="POST" class="d-flex flex-nowrap gap-1">
+                              <form action="perfil/borrarTutor" method="POST" class="d-flex flex-nowrap gap-1">
                                 <button class="btn btn-sm btn-danger" data-bs-target="#infoTutor" data-bs-toggle="modal" name="idTutor" value="<?php echo $tutor['ID_TUTOR'] ?>">Borrar</button>
                               </form>
                             </div>
@@ -166,12 +166,12 @@ $tutores = $this->d['tutores'];
                                 <button class="btn btn-sm btn-primary btnNino" data-bs-target="#editNino" data-bs-toggle="modal" value="<?php echo $nino["ID_NINO"] ?>">Editar</button>
                                 <button class="btn text-nowrap btn-sm btn-primary btnNino" data-bs-target="#infoNino" data-bs-toggle="modal" value="<?php echo $nino["ID_NINO"] ?>">Ver info.</button>
                                 <?php if ($nino["0"] == 'true') : ?>
-                                  <form action="<?php echo baseUrl ?>perfil/DescargarDniNino" method="POST">
+                                  <form action="perfil/DescargarDniNino" method="POST">
                                     <button class="btn btn-sm btn-light" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">DNI</button>
                                   </form>
                                 <?php endif; ?>
                                 <?php if ($nino["1"] == 'true') : ?>
-                                  <form action="<?php echo baseUrl ?>perfil/DescargarTSNino" method="POST">
+                                  <form action="perfil/DescargarTSNino" method="POST">
                                     <button class="btn btn-sm btn-light text-nowrap" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">Tarj. San.</button>
                                   </form>
                                 <?php endif; ?>
@@ -216,20 +216,20 @@ $tutores = $this->d['tutores'];
 
                         <td style="width: 0px">
                           <?php if ($reserva["DS_ESTADO"] == 'NO VALIDADO') : ?>
-                            <form method="POST" action="<?php echo baseUrl ?>perfil/cancelarReserva" class="d-flex flex-nowrap gap-1">
+                            <form method="POST" action="perfil/cancelarReserva" class="d-flex flex-nowrap gap-1">
                               <button class="btn btn-sm w-100 btn-danger " name="idReserva" value="<?php echo $reserva["ID_RESERVA"] ?>">Cancelar</button>
                             </form>
                           <?php endif; ?>
 
                           <?php if ($reserva["DS_ESTADO"] == 'VALIDADO') : ?>
-                            <form method="POST" action="<?php echo baseUrl ?>perfil/pagarReserva" class="d-flex flex-nowrap gap-1">
+                            <form method="POST" action="perfil/pagarReserva" class="d-flex flex-nowrap gap-1">
                               <input hidden type="number" step="0.01" value="<?php echo $reserva["PRECIO"] ?>" name="precio">
                               <button class="btn btn-sm w-100 btn-primary " name="idReserva" value="<?php echo $reserva["ID_RESERVA"] ?>">Pagar</button>
                             </form>
                           <?php endif; ?>
 
                           <?php if ($reserva["DS_ESTADO"] == 'PAGADO') : ?>
-                            <form method="POST" action="<?php echo baseUrl ?>perfil/factura" class="d-flex flex-nowrap gap-1">
+                            <form method="POST" action="perfil/factura" class="d-flex flex-nowrap gap-1">
                               <button class="btn btn-sm w-100 btn-dark " name="idReserva" value="<?php echo $reserva["ID_RESERVA"] ?>">Factura</button>
                             </form>
                           <?php endif; ?>
@@ -258,7 +258,7 @@ $tutores = $this->d['tutores'];
 <div class="modal fade" id="insertTutor">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
     <div class="modal-content">
-      <form action="<?php echo baseUrl ?>perfil/infoTutor" method="POST" id="formTut">
+      <form action="perfil/infoTutor" method="POST" id="formTut">
         <div class="modal-header">
           <h5 class="modal-title">Datos de tutor</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -323,7 +323,7 @@ $tutores = $this->d['tutores'];
 <div class="modal fade" id="editarInfo">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
     <div class="modal-content">
-      <form action="<?php echo baseUrl ?>perfil/infoUsuario" method="POST" enctype="multipart/form-data">
+      <form action="perfil/infoUsuario" method="POST" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title">Datos de usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -386,7 +386,7 @@ $tutores = $this->d['tutores'];
 
 <div class="modal fade" id="registrarNino">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-    <form id="ninoForm" action="<?php echo baseUrl ?>perfil/registroNino" class="modal-content" method="POST" enctype="multipart/form-data">
+    <form id="ninoForm" action="perfil/registroNino" class="modal-content" method="POST" enctype="multipart/form-data">
       <div class="modal-header">
         <h5 class="modal-title" id="inscripcionModalLabel">Inscripción de Niño</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -508,7 +508,7 @@ $tutores = $this->d['tutores'];
 
 <div class="modal fade" id="editNino" tabindex="-1" role="dialog" aria-labelledby="inscripcionModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-    <form id="ninoEditForm" action="<?php echo baseUrl ?>perfil/editNino" class="modal-content" method="POST" enctype="multipart/form-data">
+    <form id="ninoEditForm" action="perfil/editNino" class="modal-content" method="POST" enctype="multipart/form-data">
       <div class="modal-header">
         <h5 class="modal-title" id="inscripcionModalLabel">Editar Niño</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -720,7 +720,7 @@ $tutores = $this->d['tutores'];
 </div>
 
 
-<script src="<?php echo baseUrl ?>locals/js/perfil.js"></script>
+<script src="Locals/js/perfil.js"></script>
 
 
 <?php

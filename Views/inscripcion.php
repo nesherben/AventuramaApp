@@ -4,7 +4,7 @@ $elem = $this->d['elem'];
 $ninos = $this->d['ninos'];
 $turnos = $this->d['turnos'];
 ?>
-<link rel="stylesheet" href="<?php echo baseUrl ?>locals/css/inscripcion.css">
+<link rel="stylesheet" href="Locals/css/inscripcion.css">
 
 <section class="content">
 	<h1 class="card-header">Inscripción a
@@ -13,7 +13,7 @@ $turnos = $this->d['turnos'];
 
 	<label class="p-3 bg-light shadow-sm border-bottom">Compruebe los datos a continuación y proceda a la
 		inscripción.</label>
-	<form class="gap-3 m-3" id="formInsc" action="<?php echo baseUrl ?>inscripcion/reservarPlaza" method="POST">
+	<form class="gap-3 m-3" id="formInsc" action="inscripcion/reservarPlaza" method="POST">
 		<input hidden value="<?php echo $elem->codigo ?>" name="codigo">
 
 		<div id="userInfo" class="card p-0 overflex">
@@ -142,7 +142,7 @@ $turnos = $this->d['turnos'];
 
 <div class="modal fade" id="inscripcionModal" tabindex="-1" role="dialog" aria-labelledby="inscripcionModalLabel" aria-hidden="true">
 	<div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-		<form id="ninoForm" action="<?php echo baseUrl ?>inscripcion/registroNino" class="modal-content" method="POST" enctype="multipart/form-data">
+		<form id="ninoForm" action="inscripcion/registroNino" class="modal-content" method="POST" enctype="multipart/form-data">
 			<div class="modal-header">
 				<h5 class="modal-title" id="inscripcionModalLabel">Inscripción de Niño</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -264,7 +264,7 @@ $turnos = $this->d['turnos'];
 
 <div class="modal fade" id="editNino" tabindex="-1" role="dialog" aria-labelledby="inscripcionModalLabel" aria-hidden="true">
 	<div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-		<form id="ninoEditForm" action="<?php echo baseUrl ?>inscripcion/editNino" class="modal-content" method="POST" enctype="multipart/form-data">
+		<form id="ninoEditForm" action="inscripcion/editNino" class="modal-content" method="POST" enctype="multipart/form-data">
 			<div class="modal-header">
 				<h5 class="modal-title" id="inscripcionModalLabel">Editar Niño</h5>
 				<input type="text" id="idNino" name="idNino" value="" hidden>
@@ -385,6 +385,6 @@ $turnos = $this->d['turnos'];
 	</div>
 </div>
 
-<script src="<?php echo baseUrl ?>locals/js/inscripcion.js"></script>
+<script src="Locals/js/inscripcion.js"></script>
 
 <?php require_once("Layouts/Footer.php"); ?>

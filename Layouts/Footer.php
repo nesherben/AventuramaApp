@@ -8,7 +8,7 @@
       padding: 0;">
         <?php if (isset($this->d['user'])) : ?>
           <?php  if ($this->d['user']->getRole() == "admin") : ?>
-            <li><a class="btn h-100 btn-danger" href="<?php echo baseUrl ?>phpmyadmin/" target="_blank">DATABASE</a></li>
+            <li><a class="btn h-100 btn-danger" href="phpmyadmin/" target="_blank">DATABASE</a></li>
             <li><p class="text-light m-0">|</p></li>
           <?php endif;?>
         <?php endif;?>

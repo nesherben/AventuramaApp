@@ -102,13 +102,13 @@ $ninos = $this->d['ninos'];
                             ">Validar</button>
                             </div>
 
-                            <form action="<?php echo baseUrl ?>adminpage/cancelarReserva" method="POST">
+                            <form action="adminpage/cancelarReserva" method="POST">
                               <button style="width: 5.2rem;" class="btn btn-sm btn-danger" type="submit" name="reserva" value="<?php echo $reserva['ID_RESERVA'] ?>">Cancelar</button>
                             </form>
                           <?php endif; ?>
 
                           <?php if ($reserva["DS_ESTADO"] == 'PAGADO') : ?>
-                            <form action="<?php echo baseUrl ?>adminpage/reembolsarReserva" method="POST">
+                            <form action="adminpage/reembolsarReserva" method="POST">
                               <button style="width: 6rem;" class="btn btn-sm btn-danger" type="submit" name="reserva" value="<?php echo $reserva['ID_RESERVA'] ?>">Reembolsar</button>
                             </form>
                           <?php endif; ?>
@@ -195,17 +195,17 @@ $ninos = $this->d['ninos'];
                             <button class="border btn btn-sm btn-primary btnInfos" style="width: 5rem;" data-bs-target="#verInfo" data-bs-toggle="modal" value="<?php echo $nino["ID_NINO"] ?>">Ver info.</button>
                           </div>
                           <?php if ($nino["0"] == 'true') : ?>
-                            <form action="<?php echo baseUrl ?>adminpage/DescargarDniNino" method="POST">
+                            <form action="adminpage/DescargarDniNino" method="POST">
                               <button class="btn btn-sm btn-light  text-nowrap" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">DNI Niño</button>
                             </form>
                           <?php endif; ?>
                           <?php if ($nino["1"] == 'true') : ?>
-                            <form action="<?php echo baseUrl ?>adminpage/DescargarTSNino" method="POST">
+                            <form action="adminpage/DescargarTSNino" method="POST">
                               <button class="btn btn-sm btn-light text-nowrap" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">Tarj. San.</button>
                             </form>
                           <?php endif; ?>
                           <?php if ($nino["2"] == 'true') : ?>
-                            <form action="<?php echo baseUrl ?>adminpage/DescargarDniPadre" method="POST">
+                            <form action="adminpage/DescargarDniPadre" method="POST">
                               <button class="btn btn-sm btn-light text-nowrap" name="idPadre" value="<?php echo $nino["ID_PADRE"] ?>" type="submit">DNI Padre</button>
                             </form>
                           <?php endif; ?>
@@ -257,7 +257,7 @@ $ninos = $this->d['ninos'];
                       <div class="collapse" data-bs-parent="#MBody" id="M<?php echo $elem['actividad']['CD_ACTIVIDAD'] ?>">
                         <div class="card-body d-flex gap-3">
                           <div class="d-flex flex-column gap-3">
-                            <form action="<?php echo baseUrl ?>adminpage/ActivarDesactivar" method="POST">
+                            <form action="adminpage/ActivarDesactivar" method="POST">
                               <input hidden value="<?php echo $elem['actividad']["DESACTIVADO"] ?>" name="desactivado">
                               <button style="width: 5.2rem;" class="btn btn-sm <?php echo $elem['actividad']["DESACTIVADO"] == 0 ? "btn-danger" : "btn-warning" ?> btnDesactivar" type="submit" name="codigo" value="<?php echo $elem['actividad']['CD_ACTIVIDAD'] ?>"><?php echo $elem['actividad']["DESACTIVADO"] == 0 ? "Desactivar" : "Reactivar " ?></button>
                             </form>
@@ -296,7 +296,7 @@ $ninos = $this->d['ninos'];
                                       document.getElementById('campoPlazas').value = '<?php echo $turnosA['NUM_PLAZAS'] ?>';
                                       
                                       ">Config.</button>
-                                      <form action="<?php echo baseUrl ?>adminpage/getExcel" method="POST">
+                                      <form action="adminpage/getExcel" method="POST">
 
 
                                         <button name="actTurno" value="<?php echo  $elem['actividad']['CD_ACTIVIDAD'] . "-" . $turnosA['TURNO'] ?>" class="text-nowrap btn btn-sm btn-secondary">Descargar Excel</button>
@@ -343,7 +343,7 @@ $ninos = $this->d['ninos'];
           NO DEBE HABER TURNOS EN CURSO. Trate esta acción con cuidado. Para su seguridad, hay una comprobación adicional
           en la base de datos.
         </p>
-        <form action="<?php echo baseUrl ?>adminpage/borrarActividad" method="POST">
+        <form action="adminpage/borrarActividad" method="POST">
           <input hidden name="codigo" id="confirmBtn" value="">
           <button class="btn btn-danger" type="submit">Borrar</button>
         </form>
@@ -452,7 +452,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="editActividad">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-    <form id="actividadEditForm" action="<?php echo baseUrl ?>adminpage/EditarActividad" class="modal-content" method="POST">
+    <form id="actividadEditForm" action="adminpage/EditarActividad" class="modal-content" method="POST">
       <div class="modal-header">
         <h5 class="modal-title">Editar Actividad</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -501,7 +501,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="validarReserva">
   <div class="modal-dialog" style="--bs-modal-width: 600px;" role="document">
-    <form method="POST" action="<?php echo baseUrl ?>adminpage/validarReserva" class="modal-content">
+    <form method="POST" action="adminpage/validarReserva" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Validar reserva</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -528,7 +528,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="plazasConfig">
   <div class="modal-dialog" style="--bs-modal-width: 600px;" role="document">
-    <form method="POST" action="<?php echo baseUrl ?>adminpage/SetPlazaTurno" id="plazasForm" class="modal-content">
+    <form method="POST" action="adminpage/SetPlazaTurno" id="plazasForm" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Configurar plaza </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -568,7 +568,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="emailManual">
   <div class="modal-dialog" style="--bs-modal-width:1000px;" role="document">
-    <form action="<?php echo baseUrl ?>adminpage/EnviarEmailManual" method="POST" id="emailForm" class="modal-content">
+    <form action="adminpage/EnviarEmailManual" method="POST" id="emailForm" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Enviar email</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -599,7 +599,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="registrarCategoria">
   <div class="modal-dialog" style="--bs-modal-width:400px;" role="document">
-    <form action="<?php echo baseUrl ?>adminpage/registrarCategoria" method="POST" class="modal-content">
+    <form action="adminpage/registrarCategoria" method="POST" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Registrar nueva categoría</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -626,7 +626,7 @@ $ninos = $this->d['ninos'];
 
 <div class="modal fade" id="registrarActividad">
   <div class="modal-dialog" style="--bs-modal-width: 1000px" role="document">
-    <form id="actividadForm" action="<?php echo baseUrl ?>adminpage/nuevaActividad" class="modal-content" method="POST">
+    <form id="actividadForm" action="adminpage/nuevaActividad" class="modal-content" method="POST">
       <div class="modal-header">
         <h5 class="modal-title">Creacion de Actividad</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -679,7 +679,7 @@ $ninos = $this->d['ninos'];
   </div>
 </div>
 
-<script src="<?php echo baseUrl ?>locals/js/adminpage.js"></script>
+<script src="Locals/js/adminpage.js"></script>
 
 <?php
 require_once("Layouts/Footer.php");

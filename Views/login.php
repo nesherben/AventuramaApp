@@ -2,7 +2,7 @@
 <script type="module">
 
 </script>
-<link href="<?php echo baseUrl ?>locals/css/login.css" rel="stylesheet">
+<link href="Locals/css/login.css" rel="stylesheet">
 </script>
 <section class="content">
     <div class=" d-flex flex-column card p-0 m-auto" id="LoginFormContainer">
@@ -10,7 +10,7 @@
         <div class="card-header">
             <h3>Iniciar sesión</h3>
         </div>
-        <form action="<?php echo baseUrl ?>login/authenticate" method="POST">
+        <form action="login/authenticate" method="POST">
             <div class="col-md-12 card-body">
                 <div class="form-group">
                     <label for="email">Email de usuario:</label>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="card-footer d-flex flex-wrap text-nowrap gap-3 justify-content-between">
-                <a href="<?php echo baseUrl ?>signup" type="button" class="col btn btn-primary btn-block">Registrarse</a>
+                <a href="signup" type="button" class="col btn btn-primary btn-block">Registrarse</a>
                 <button type="submit" class="col btn btn-primary btn-block">Iniciar sesión</button>
             </div>
         </form>        
@@ -39,7 +39,7 @@
                 <h4>Recuperar contraseña</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?php echo baseUrl ?>login/recuperarPassword" method="POST">
+            <form action="login/recuperarPassword" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="email">Email</label>

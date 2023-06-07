@@ -1,6 +1,6 @@
 <?php
 
-require_once baseUrl.'Layouts/Header.php';
+require_once 'Layouts/Header.php';
 ?>
 <section class="content">
 
@@ -10,7 +10,7 @@ require_once baseUrl.'Layouts/Header.php';
             <h3>Recuperar contraseña</h3>
         </div>
 
-        <form action="<?php echo baseUrl ?>recoverPassword/recover" method="POST">
+        <form action="recoverPassword/recover" method="POST">
             <div class="card-body">
                 <div class="form-group row">
                     <input hidden type="text" class="form-control" id="email" name="email" value="<?php echo $this->d['email'] ?? "" ?>" required>
@@ -35,5 +35,5 @@ require_once baseUrl.'Layouts/Header.php';
 
 
 <?php
-require_once baseUrl.'Layouts/Footer.php';
+require_once 'Layouts/Footer.php';
 ?>
