@@ -1,10 +1,15 @@
 body {
-  height: 100vh;
+  height: 100%;
   background-color: #F0FDEF !important;
   display: flex;
-  overflow: auto;
+  overflow: none;
   flex-direction: column;
 
+}
+
+html{
+  height: 100vh;
+  overflow: none;
 }
 
 .overflex {
@@ -39,6 +44,7 @@ body {
 #footer {
   background-color: #224507 !important;
   position: sticky;
+  overflow:auto;
   z-index: 1000;
   height: 2.5rem;
   bottom: 0;

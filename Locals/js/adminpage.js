@@ -40,7 +40,8 @@ function datosToForm(datos) {
     $("#imagenActividadE").val(datos['URL_IMAGEN']);
 
     let turnos_array = datos['TURNOS'].split(',');
-    let opciones = document.getElementById("turnosActividadE").options;
+    let opciones = document.getElementById("turnosActividadE")?.options;
+    if(opciones)
     for (let i = 0; i < opciones.length; i++) {
         if (turnos_array.indexOf(opciones[i].value) !== -1) {
             opciones[i].selected = true;
