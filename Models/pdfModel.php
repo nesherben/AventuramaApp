@@ -60,7 +60,7 @@ class FacturaPDF extends tFPDF
     {
         $precio = (float)$datos['PRECIO'];
         //1.1 ES EL PRECIO SIN IVA 10%
-        $siniva = (float)round($precio / 1.1);
+        $siniva = (float)($precio / (1.1));
         $iva = $precio - $siniva;
 
 
@@ -90,20 +90,20 @@ class FacturaPDF extends tFPDF
         // Precio normal
         $this->SetFont('DejaVu', '', 11);
         $this->Cell(130, 10, $datos['CATEGORIA'] . ": " . $datos['ACTIVIDAD'] . " - " . $datos['TURNO'], 1);
-        $this->Cell(60, 10, $siniva . "€", 1);
+        $this->Cell(60, 10, number_format($siniva, 2) . "€", 1);
         $this->Ln(); // Salto de línea
 
         // Información del IVA
         $this->SetFont('DejaVu', '', 11);
         $this->Cell(130, 10, 'IVA (10%)', 1);
-        $this->Cell(60, 10, $iva . "€", 1);
+        $this->Cell(60, 10, number_format($iva,2) . "€", 1);
         $this->Ln(); // Salto de línea
 
         // Total
         $this->SetFont('DejaVu', 'B', 14);
         $this->Cell(130, 10, 'Total a pagar', 1);
         $this->SetFont('DejaVu', 'BU', 14);
-        $this->Cell(60, 10, $precio . "€", 1);
+        $this->Cell(60, 10, number_format($precio,2) . "€", 1);
         $this->Ln(); // Salto de línea
 
         $this->SetXY(15, 230);

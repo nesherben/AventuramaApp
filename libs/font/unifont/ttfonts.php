@@ -21,7 +21,8 @@
 // 0x00010000 for Windows
 // Either seems to work for a font embedded in a PDF file
 // when read by Adobe Reader on a Windows PC(!)
-define("_TTF_MAC_HEADER", false);
+define("_TTF_MAC_HEADER", true);
+//define("_TTF_MAC_HEADER", false);
 
 
 // TrueType Font Glyph operators
@@ -80,7 +81,7 @@ public $maxStrLenRead;
 
 
 	function getMetrics($file) {
-		$this->filename = $file;
+		$this->filename = str_replace('/', '\\', $file);
 		$this->fh = fopen($file,'rb') or die('Can\'t open file ' . $file);
 		$this->_pos = 0;
 		$this->charWidths = '';
@@ -497,7 +498,7 @@ public $maxStrLenRead;
 
 
 	function makeSubset($file, &$subset) {
-		$this->filename = $file;
+		$this->filename = str_replace('/', '\\', $file);
 		$this->fh = fopen($file ,'rb') or die('Can\'t open file ' . $file);
 		$this->_pos = 0;
 		$this->charWidths = '';
