@@ -301,12 +301,15 @@ class Adminpage extends SessionController
             $this->redirect('perfil', ['error' => 'No se ha podido descargar el dni']);
             return false;
         }
+
+        error_log($data["TIPO_ARCHIVO"] . " filename=" . $data["NM_ARCHIVO"] . " tamaño= " . $data["SIZE_ARCHIVO"] );
+
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
         header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
 
         // Enviar los datos binarios de la imagen al navegador
-        return $data["DNI"];
+        return $data["TARJETA"];
     }
     function EditarActividad()
     {
