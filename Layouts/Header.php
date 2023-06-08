@@ -15,13 +15,13 @@ header('Content-Type: text/html; charset=UTF-8');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="Locals/assets/ico/apple-touch-icon.png">
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="Locals/assets/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Locals/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Locals/assets/ico/favicon-16x16.png">
     <link rel="manifest" href="Locals/assets/ico/site.webmanifest">
     <link rel="mask-icon" href="Locals/assets/ico/safari-pinned-tab.svg" color="#5bbad5"> 
     <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff"> -->
 
     <div class="bg-dark d-flex shadow" id="header">
         <img src="https://aventurama.es/wp-content/uploads/logotop1.jpg" style="cursor: pointer; position: relative; width: auto; height: 100%;" onclick="window.location.href = ('<?= baseUrl ?>')">
