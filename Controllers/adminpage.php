@@ -164,9 +164,9 @@ class Adminpage extends SessionController
         foreach ($ninos as $key => $n) {
             $miPadre = $padre->get($n["ID_PADRE"]);
             $nino->setId($n["ID_NINO"]);
-            array_push($n, $nino->descargarDni() != false ? true : false);
-            array_push($n,  $nino->descargarTarjeta() != false ? true : false);
-            array_push($n,  $miPadre->descargarDNI($miPadre->getId()) != false ? true : false);
+            array_push($n, $nino->descargarDni() == false ? false : true);
+            array_push($n,  $nino->descargarTarjeta() == false ? false : true);
+            array_push($n,  $miPadre->descargarDNI($miPadre->getId()) == false ? false : true);
             $ninos[$key] = $n;
         }
         return $ninos;
@@ -265,11 +265,14 @@ class Adminpage extends SessionController
             return false;
         }
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+        header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
+        ob_clean();
+        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+        fpassthru($stream);
+        fclose($stream);
         // Enviar los datos binarios de la imagen al navegador
-        return $data["DNI"];
+        exit;
     }
     function DescargarDniNino()
     {
@@ -283,11 +286,14 @@ class Adminpage extends SessionController
             return false;
         }
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+        header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
+        ob_clean();
+        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+        fpassthru($stream);
+        fclose($stream);
         // Enviar los datos binarios de la imagen al navegador
-        return $data["DNI"];
+        exit;
     }
     function DescargarTSNino()
     {
@@ -305,11 +311,14 @@ class Adminpage extends SessionController
         error_log($data["TIPO_ARCHIVO"] . " filename=" . $data["NM_ARCHIVO"] . " tamaño= " . $data["SIZE_ARCHIVO"] );
 
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+        header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
+        ob_clean();
+        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["TARJETA"]), 'r');
+        fpassthru($stream);
+        fclose($stream);
         // Enviar los datos binarios de la imagen al navegador
-        return $data["TARJETA"];
+        exit;
     }
     function EditarActividad()
     {

@@ -25,8 +25,8 @@ class perfil extends SessionController
         $ninos = $nino->getNinos();
         foreach ($ninos as $key => $n) {
             $nino->setId($n["ID_NINO"]);
-            array_push($n, $nino->descargarDni() != false ? true : false);
-            array_push($n,  $nino->descargarTarjeta() != false ? true : false);
+            array_push($n, $nino->descargarDni() == false ? false : true);
+            array_push($n,  $nino->descargarTarjeta() == false ? false : true);
             $ninos[$key] = $n;
         }
         return $ninos;
@@ -296,11 +296,14 @@ class perfil extends SessionController
             return false;
         }
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+        header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
+        ob_clean();
+        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+        fpassthru($stream);
+        fclose($stream);
         // Enviar los datos binarios de la imagen al navegador
-        return $data["DNI"];
+        exit;
     }
     function DescargarDniNino()
     {
@@ -314,11 +317,15 @@ class perfil extends SessionController
             return false;
         }
          header("Content-type: " . $data["TIPO_ARCHIVO"]);
-         header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+         header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
          header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
-        // // Enviar los datos binarios de la imagen al navegador
-         return $data["DNI"];
+        
+         ob_clean();
+         $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+         fpassthru($stream);
+         fclose($stream);
+         // Enviar los datos binarios de la imagen al navegador
+         exit;
         }
     function DescargarTSNino()
     {
@@ -332,13 +339,17 @@ class perfil extends SessionController
             return false;
         }
         error_log($data["TIPO_ARCHIVO"] . " filename=" . $data["NM_ARCHIVO"] . " tamaño= " . $data["SIZE_ARCHIVO"] );
-
+        
         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"]);
+        header("Content-Disposition: attachment; filename=" . $data["NM_ARCHIVO"] . "");
         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-
+        
+        ob_clean();
+        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["TARJETA"]), 'r');
+        fpassthru($stream);
+        fclose($stream);
         // Enviar los datos binarios de la imagen al navegador
-        echo $data["TARJETA"];
+        exit;
     }
     function infoTutor()
     {

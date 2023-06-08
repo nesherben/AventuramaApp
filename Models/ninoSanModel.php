@@ -120,7 +120,7 @@ function guardarTarjeta(string $id, $tarjeta){
     $query = $this->prepare('INSERT into tarjetas_sanitarias (ID_NINO, TARJETA, NM_ARCHIVO, TIPO_ARCHIVO, SIZE_ARCHIVO) VALUES (:id, :tarjeta, :nombre, :tipo, :size)');
     $query->execute([
       'id' => $id,
-      'tarjeta' => addslashes(file_get_contents($tarjeta['tmp_name'])),
+      'tarjeta' => file_get_contents($tarjeta['tmp_name']),
       'nombre' => $tarjeta['name'],
       'tipo' => $tarjeta['type'],
       'size' => $tarjeta['size']

@@ -281,7 +281,7 @@ class UserModel extends Model
             $query = $this->prepare('INSERT into dnis_usuarios (ID_USUARIO, DNI, NM_ARCHIVO, TIPO_ARCHIVO, SIZE_ARCHIVO) VALUES (:id, :dni, :nombre, :tipo, :size)');
             $query->execute([
                 'id' => $id,
-                'dni' => addslashes(file_get_contents($dni['tmp_name'])),
+                'dni' => file_get_contents($dni['tmp_name']),
                 'nombre' => $dni['name'],
                 'tipo' => $dni['type'],
                 'size' => $dni['size']
