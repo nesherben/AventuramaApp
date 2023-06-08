@@ -164,7 +164,7 @@ $turnos = $this->d['turnos'];
 					</div>
 					<div class="row">
 						<div class="col form-group">
-							<label for="dni">DNI / NIE *</label>
+							<label for="dni">DNI / NIE</label>
 							<input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
 						</div>
 						<div class="col form-group">
@@ -187,7 +187,7 @@ $turnos = $this->d['turnos'];
 						<h4>Información médica del niño</h4>
 						<div class="form-group">
 							<label for="tarjeta_sanitaria">Foto Tarjeta sanitaria*</label>
-							<input type="file" class="form-control" id="tarjeta" name="tarjeta">
+							<input type="file" class="form-control" id="tarjeta" name="tarjeta" required>
 						</div>
 						<div class="form-group">
 							<label for="alergias_medicas">Alergias médicas</label>
@@ -287,11 +287,11 @@ $turnos = $this->d['turnos'];
 					</div>
 					<div class="row">
 						<div class="col form-group">
-							<label for="dni">DNI / NIE *</label>
+							<label for="dni">DNI / NIE</label>
 							<input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
 						</div>
 						<div class="col form-group">
-							<label for="dniImg">imagen DNI / NIE </label>
+							<label for="dniImg">Modificar Imagen DNI / NIE </label>
 							<input type="file" class="form-control" id="dniImg" name="dniImg">
 						</div>
 					</div>
@@ -309,7 +309,7 @@ $turnos = $this->d['turnos'];
 					<div class="col-md-6">
 						<h4>Información médica del niño</h4>
 						<div class="form-group">
-							<label for="tarjeta_sanitaria">Foto Tarjeta sanitaria*</label>
+							<label for="tarjeta_sanitaria">Modificar Foto Tarjeta sanitaria</label>
 							<input type="file" class="form-control" id="tarjeta_sanitariaNE"  name="tarjeta">
 						</div>
 						<div class="form-group">
