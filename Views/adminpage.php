@@ -305,7 +305,7 @@ $ninos = $this->d['ninos'];
                                     </td>
                                     <td><?php echo $turnosA['TURNO'] ?? '-' ?></td>
                                     <td><?php echo $turnosA['PLAZAS_OCUP'] ?? '-' ?></td>
-                                    <td><?php echo ($turnosA['TURNO'] == 'TU' ? ($turnosA['NUM_PLAZAS'] == "0" ? "Sin límite" : $turnosA['NUM_PLAZAS'] ?? "-") :  $turnosA['NUM_PLAZAS']  ?? "-") ?></td>
+                                    <td><?php echo ($turnosA['TURNO'] == 'TU - Turno único' ? ($turnosA['NUM_PLAZAS'] == "0" ? "Sin límite" : $turnosA['NUM_PLAZAS'] ?? "-") :  $turnosA['NUM_PLAZAS']  ?? "-") ?></td>
                                   </tr>
                                 <?php endforeach; ?>
                               </tbody>
