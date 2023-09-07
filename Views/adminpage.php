@@ -61,6 +61,7 @@ $ninos = $this->d['ninos'];
               <thead class="bg-light">
                 <tr>
                   <th></th>
+                  <th scope="col">Identificador</th>
                   <th scope="col">Fecha reserva</th>
                   <th scope="col">Email usuario</th>
                   <th scope="col">Actividad</th>
@@ -78,6 +79,7 @@ $ninos = $this->d['ninos'];
                         <span style="width: auto;">🔽</span>
                       </div>
                     </td>
+                    <td class="text-nowrap"><?php echo $reserva["FH_RESERVA"].$reserva['ID_RESERVA'] ?></td>
                     <td class="text-nowrap"><?php echo $reserva["FH_RESERVA"] ?></td>
                     <td class="text-nowrap"><?php echo $reserva["EMAIL"] ?></td>
                     <td class="text-nowrap"><?php echo $reserva["NM_ACTIVIDAD"] ?></td>

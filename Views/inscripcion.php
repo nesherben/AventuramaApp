@@ -167,10 +167,7 @@ $turnos = $this->d['turnos'];
 							<label for="dni">DNI / NIE</label>
 							<input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
 						</div>
-						<div class="col form-group">
-							<label for="dniImg">imagen DNI / NIE </label>
-							<input type="file" class="form-control" id="dniImg" name="dniImg">
-						</div>
+						
 					</div>
 					<div class="form-group">
 						<label for="centroEstudios">Centro de Estudios*</label>
@@ -290,10 +287,10 @@ $turnos = $this->d['turnos'];
 							<label for="dni">DNI / NIE</label>
 							<input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
 						</div>
-						<div class="col form-group">
+						<!-- <div class="col form-group">
 							<label for="dniImg">Modificar Imagen DNI / NIE </label>
 							<input type="file" class="form-control" id="dniImg" name="dniImg">
-						</div>
+						</div> -->
 					</div>
 					<div class="form-group">
 						<label for="centroEstudios">Centro de Estudios*</label>

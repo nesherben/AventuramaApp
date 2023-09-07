@@ -16,6 +16,23 @@ botones.forEach(btn => {
     })
 
 });
+document.getElementById("confirmarPago").addEventListener('click', () => {
+
+        var btn = document.getElementById("idReservaPago");
+        var checks = document.getElementById("confirmarPago");
+        var checked = false;
+
+        if (checks.checked) {
+            checked = true;
+        }
+
+        if (checked) {
+            btn.disabled = false;
+        } else {
+            btn.disabled = true;
+        }
+
+    });
 
 function datosToForm(datos) {
 

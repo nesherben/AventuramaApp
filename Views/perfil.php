@@ -221,11 +221,13 @@ $tutores = $this->d['tutores'];
                             </form>
                           <?php endif; ?>
 
-                          <?php if ($reserva["DS_ESTADO"] == 'VALIDADO') : ?>
-                            <form method="POST" action="perfil/pagarReserva" class="d-flex flex-nowrap gap-1">
-                              <input hidden type="number" step="0.01" value="<?php echo $reserva["PRECIO"] ?>" name="precio">
-                              <button class="btn btn-sm w-100 btn-primary " name="idReserva" value="<?php echo $reserva["ID_RESERVA"] ?>">Pagar</button>
-                            </form>
+                          <?php if ($reserva["DS_ESTADO"] == 'VALIDADO') : ?>                            
+                              
+                              <button class="btn btn-sm w-100 btn-primary " data-bs-target="#pagoModal" data-bs-toggle="modal" onclick="
+                              document.getElementById('precioModalPago').value = <?php echo $reserva['PRECIO'] ?>; 
+                              document.getElementById('idReservaPago').value = <?php echo $reserva['ID_RESERVA'] ?>;
+                              document.getElementById('idNumReservaModal').innerHTML = '<?php echo $reserva['FH_RESERVA'].$reserva['ID_RESERVA']?>'">Pagar</button>
+                            
                           <?php endif; ?>
 
                           <?php if ($reserva["DS_ESTADO"] == 'PAGADO') : ?>
@@ -411,10 +413,10 @@ $tutores = $this->d['tutores'];
                 <label for="dni">DNI / NIE</label>
                 <input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
               </div>
-              <div class="col form-group">
+              <!-- <div class="col form-group">
                 <label for="dniImg">imagen DNI / NIE </label>
                 <input type="file" class="form-control" id="dniImg" name="dniImg">
-            </div>
+            </div> -->
           </div>
           <div class="form-group">
             <label for="centroEstudios">Centro de Estudios*</label>
@@ -534,10 +536,10 @@ $tutores = $this->d['tutores'];
                 <label for="dni">DNI / NIE *</label>
                 <input type="text" maxlength="9" class="form-control" id="dni" name="dni">
               </div>
-              <div class="col form-group">
+              <!-- <div class="col form-group">
                 <label for="dniImg">Modificar Imagen DNI / NIE </label>
                 <input type="file" class="form-control" id="dniImg" name="dniImg">
-            </div>
+            </div> -->
           </div>
           <div class="form-group">
             <label for="centroEstudios">Centro de Estudios*</label>
@@ -719,6 +721,47 @@ $tutores = $this->d['tutores'];
   </div>
 </div>
 
+<div class="modal fade" id="pagoModal">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Aviso de pago</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+                <div class="modal-body">
+                <article class="cuerpo intro tipcuerpo textleft">
+                  <p>Aventurama agradece la participación en la actividad. Por favor, para proceder al pago, es
+                  necesario efectuar una transferencia a la cuenta bancaria correspondiente. A continuación, se
+                  podrá proceder a la confirmación del pago. Esta confirmación no es vinculante y en caso de
+                  no haberse realizado correctamente, la reserva no será valida.</p><br>
+                  <p>los datos de ingreso son los siguientes:</p><br>
+                  <p>número de cuenta: <b>IBAN ES07 0049 1804 10 2110412864</b>, del Banco Santander, 
+                    a nombre de AVENTURAMA, indicando tambien el nombre del participante y el siguiente número:</p>
+                    <p>Numero de reserva: <b id="idNumReservaModal"></b></p>
+                    <p>Para cualquier duda, puedes contactar con nosotros en los siguientes medios:</p>
+                    <span>Teléfonos: <b>686 131 266</b> / <b>669 521 332</b> / <b>686 131 158</b>.</span>
+                    <br><span>Email:<b> informacion@aventurama.es</b></span>
+                </article>
+                <br>
+                <article class="cuerpo intro tipcuerpo textleft">
+                  <p><input type="checkbox" id="confirmarPago"><span class="text-danger">
+                  Al confirmar el pago, soy consciente de que he pagado la cuantía correspondiente a la reserva
+                  por los medios disponibles. En caso contrario, Aventurama se reserva el derecho de cancelar la
+                  reserva y efectuar las medidas correspondientes.</span></p>
+                </article>
+                </div>
+                  
+                <div class="modal-footer d-flex justify-content-between">
+                  <form method="POST" action="perfil/pagarReserva" class="d-flex flex-nowrap gap-1">
+                    <input hidden type="number" id="precioModalPago" step="0.01" name="precio">
+                    <button class="btn btn-sm w-100 btn-primary " data-bs-dismiss="modal" id="idReservaPago" disabled name="idReserva">Confirmar Pago</button>
+                  </form>
+                </div>
+            
+        </div>
+    </div>
+</div>
 
 <script src="Locals/js/perfil.js"></script>
 

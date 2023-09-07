@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-05-2023 a las 01:06:01
+-- Tiempo de generación: 07-09-2023 a las 23:51:35
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -40,34 +40,6 @@ INSERT INTO `categorias_act` (`CD_CATEGORIA`, `DS_CATEGORIA`) VALUES
 ('ANIMACION', 'Animaciones'),
 ('CAMPURBAN', 'Campamentos Urbanos'),
 ('CAMPVERAN', 'Campamentos de Verano');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dnis_ninos`
---
-
-CREATE TABLE `dnis_ninos` (
-  `ID_NINO` bigint(20) NOT NULL,
-  `DNI` longblob NOT NULL,
-  `NM_ARCHIVO` varchar(200) NOT NULL,
-  `TIPO_ARCHIVO` varchar(30) NOT NULL,
-  `SIZE_ARCHIVO` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dnis_usuarios`
---
-
-CREATE TABLE `dnis_usuarios` (
-  `ID_USUARIO` bigint(20) NOT NULL,
-  `DNI` longblob NOT NULL,
-  `NM_ARCHIVO` varchar(200) NOT NULL,
-  `TIPO_ARCHIVO` varchar(30) NOT NULL,
-  `SIZE_ARCHIVO` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -131,7 +103,7 @@ CREATE TABLE `ninos` (
   `NOMBRE` varchar(50) NOT NULL,
   `APELLIDOS` varchar(50) NOT NULL,
   `DNI` varchar(9) DEFAULT NULL,
-  `FH_NACIMIENTO` datetime NOT NULL COMMENT 'Fecha de nacimiento del niño',
+  `FH_NACIMIENTO` date NOT NULL COMMENT 'Fecha de nacimiento del niño',
   `CENTRO_ESTUDIOS` varchar(30) NOT NULL COMMENT 'Centro de estudios asociado',
   `ID_PADRE` bigint(20) NOT NULL,
   `OBSERVACIONES` text DEFAULT NULL COMMENT 'Campo libre'
@@ -150,8 +122,8 @@ CREATE TABLE `ninos` (
 CREATE TABLE `plazas_act` (
   `CD_ACTIVIDAD` varchar(10) NOT NULL COMMENT 'el codigo de actividad',
   `CD_TURNO` varchar(3) NOT NULL COMMENT 'el turno asociado',
-  `NUM_PLAZAS` int(11) NOT NULL DEFAULT 0 COMMENT 'el numero de plazas disponibles',
-  `PLAZAS_OCUP` int(11) NOT NULL DEFAULT 0 COMMENT 'el numero de plazas ocupadas'
+  `NUM_PLAZAS` int(11) NOT NULL DEFAULT 0 COMMENT 'el numero de plazas',
+  `PLAZAS_OCUP` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -191,8 +163,8 @@ CREATE TABLE `reservas` (
   `ID_NINO` bigint(20) NOT NULL COMMENT 'Identificador del niño',
   `CD_ACTIVIDAD` varchar(10) NOT NULL COMMENT 'Actividad',
   `TURNO` char(3) DEFAULT NULL COMMENT 'Turno asociado',
-  `FH_RESERVA` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'La fecha en la que se efectúa la reserva, no la fercha del campamento en sí',
-  `FH_LIMITE` datetime DEFAULT NULL,
+  `FH_RESERVA` date NOT NULL DEFAULT current_timestamp() COMMENT 'La fecha en la que se efectúa la reserva, no la fercha del campamento en sí',
+  `FH_LIMITE` date DEFAULT NULL,
   `CONOCIDO` text DEFAULT NULL COMMENT '¿Cómo nos has conocido? (Abierto)',
   `ESTADO` char(1) NOT NULL DEFAULT '0' COMMENT '0 NO VALIDADO, 1 VALIDADO, 2 PAGADO, 3 CANCELADO, 4 REEMBOLSADO, 5 FINALIZADO, 6 EN CURSO, 7 ANTIGUO',
   `PRECIO` decimal(10,2) NOT NULL DEFAULT 0.00 COMMENT 'EL PRECIO PAGADO DE LA RESERVA DE FORMA INDIVIDUAL POR CADA NIÑO'
@@ -237,12 +209,12 @@ CREATE TABLE `tipos_act` (
 --
 
 INSERT INTO `tipos_act` (`CD_ACTIVIDAD`, `NM_ACTIVIDAD`, `DS_ACTIVIDAD`, `CT_ACTIVIDAD`, `URL_IMAGEN`, `TURNOS`, `DESACTIVADO`) VALUES
-('ARTISTIC', 'Artístico', 'Hay niños que tienen un interés específico o facilidad para otras actividades que no son el deporte. En AVENTURAMA realizamos campamentos de verano que se enfocan en desarrollar las aptitudes creativas de nuestros niños, manteniendo siempre una constante relación con la naturaleza.', 'CAMPVERAN', '', 'TU', 0),
+('ARTISTIC', 'Campamento Artístico', 'Hay niños que tienen un interés específico o facilidad para otras actividades que no son el deporte. En AVENTURAMA realizamos campamentos de verano que se enfocan en desarrollar las aptitudes creativas de nuestros niños, manteniendo siempre una constante relación con la naturaleza.', 'CAMPVERAN', 'https://aventurama.es/wp-content/uploads/campamento%20artistico.jpg', 'TU', 0),
 ('AVENTURAMA', 'Aventurama', 'Nuestra especialidad. Los elementos que más se demandan, en una animación que podrás tematizar a tu gusto.', 'ANIMACION', '', 'TU', 0),
 ('BABYSHOW', 'Baby Shower', 'La primera fiesta del futuro bebe. Un evento destinado a que el embarazo sea compartido con los más allegados.', 'ANIMACION', '', 'TU', 0),
 ('BODBAUCOM', 'Bodas, bautizos y comuniones', 'En estos días, nos ocuparemos de lo necesario para entretener a los más pequeños de la forma más divertida.', 'ANIMACION', '', 'TU', 0),
 ('CHAMPSLG', 'Champions League', '¿Apasionados del fútbol? Prepara tu equipo y competir en las pruebas que os harán lograr la Copa de Europa!!', 'ANIMACION', '', 'TU', 0),
-('COLEGIO', 'Campamento en colégios', 'Es una propuesta de actividades lúdico-formativas, dirigidas a niños y niñas de Educación Infantil y Primaria', 'CAMPURBAN', '', 'TU', 0),
+('COLEGIO', 'Campamento en colégios', 'Es una propuesta de actividades lúdico-formativas, dirigidas a niños y niñas de Educación Infantil y Primaria', 'CAMPURBAN', 'https://aventurama.es/wp-content/uploads/campamento%20multiaventura.jpg', 'TU', 0),
 ('DANMINSTR', 'Dance Mini Start', 'Supera el casting de La Voz, resuelve juegos musicales y realiza la coreografía final que será inmortalizada en vídeo.', 'ANIMACION', '', 'TU', 0),
 ('FASHMODAY', 'Fashion Model Day', 'Prepararemos todo lo necesario para ser una gran modelo y realizaremos una sesión fotográfica en la gran pasarela.', 'ANIMACION', '', 'TU', 0),
 ('FROZEN', 'Frozen', 'Ayuda a Elsa, Ana y sus amigos a salvar el reino de Arendelle.', 'ANIMACION', '', 'TU', 0),
@@ -255,7 +227,7 @@ INSERT INTO `tipos_act` (`CD_ACTIVIDAD`, `NM_ACTIVIDAD`, `DS_ACTIVIDAD`, `CT_ACT
 ('MINIONS', 'Los Minions', 'Estos simpáticos personajes os necesitan!!! Sus misiones que harán vuestra fiesta mucho más divertida!!!', 'ANIMACION', '', 'TU', 0),
 ('MULTIAVE', 'Multiaventura', 'Los campamentos multiaventura son nuestra esencia. Somos especialistas en multiaventura y multiactividad. Cada campamento es una aventura rodeada de diversión con la que disfrutan y aprenden nuestros acampados.', 'CAMPVERAN', 'https://aventurama.es/wp-content/uploads/campamento%20verano.jpg', 'TU', 0),
 ('SUPERHERO', 'Superhéroes', 'Vuestros superhéroes preferidos estarán con vosotros para realizar las misiones más arriesgadas!', 'ANIMACION', '', 'TU', 0),
-('URBANIZ', 'Campamento en urbanizaciónes', 'Los campamentos de verano a domicilio son los que realizamos en su propia urbanización o comunidad de vecinos…', 'CAMPURBAN', '', 'TU', 0);
+('URBANIZ', 'Campamento en urbanizaciónes', 'Los campamentos de verano a domicilio son los que realizamos en su propia urbanización o comunidad de vecinos…', 'CAMPURBAN', 'https://aventurama.es/wp-content/uploads/campamento%20urbano.jpg', 'TU', 0);
 
 -- --------------------------------------------------------
 
@@ -265,7 +237,7 @@ INSERT INTO `tipos_act` (`CD_ACTIVIDAD`, `NM_ACTIVIDAD`, `DS_ACTIVIDAD`, `CT_ACT
 
 CREATE TABLE `turnos_act` (
   `CD_TURNO` char(3) NOT NULL COMMENT 'Código compuesto por una letra y numero correspondiente al turno. Ejemplo: S1 (Semana 1), Q1 (Quincena 1)... Si tiene una ''I'' es un turno con inglés',
-  `DS_TURNO` varchar(30) NOT NULL COMMENT 'descripción del turno'
+  `DS_TURNO` varchar(20) NOT NULL COMMENT 'descripción del turno'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Turnos tabulados posibles para una actividad';
 
 --
@@ -273,12 +245,12 @@ CREATE TABLE `turnos_act` (
 --
 
 INSERT INTO `turnos_act` (`CD_TURNO`, `DS_TURNO`) VALUES
-('IQ1', 'Ingés - 1st Qincena'),
-('IQ2', 'Ingés - 2nd Qincena'),
-('IS1', 'Ingés - 1st Semana'),
-('IS2', 'Ingés - 2nd Semana'),
-('IS3', 'Ingés - 3rd Semana'),
-('IS4', 'Ingés - 4th Semana'),
+('IQ1', '1st Fortnight'),
+('IQ2', '2nd Fortnight'),
+('IS1', '1st Week'),
+('IS2', '2nd Week'),
+('IS3', '3rd Week'),
+('IS4', '4th Week'),
 ('Q1', 'Primera Quincena'),
 ('Q2', 'Segunda Quincena'),
 ('S1', 'Primera Semana'),
@@ -296,22 +268,21 @@ INSERT INTO `turnos_act` (`CD_TURNO`, `DS_TURNO`) VALUES
 CREATE TABLE `tutores` (
   `ID_TUTOR` bigint(20) NOT NULL COMMENT 'ID autoincremental para referencias',
   `NOMBRE` varchar(50) NOT NULL COMMENT 'nombre de tutor',
-  `APELLIDOS` varchar(50) NOT NULL COMMENT 'apellidos de tutor',
-  `EMAIL` varchar(50) NOT NULL COMMENT 'email de tutor',
-  `NUM_TLFN` varchar(9) NOT NULL COMMENT 'telefono de tutor',
-  `DNI` varchar(10) NOT NULL COMMENT 'dni de tutor',
-  `DIRECCION` varchar(50) NOT NULL COMMENT 'direccion de tutor',
-  `DIRECCION2` varchar(50) NOT NULL COMMENT 'direccion2 de tutor',
-  `CP` varchar(5) NOT NULL COMMENT 'cp de tutor',
-  `LOCALIDAD` varchar(50) NOT NULL COMMENT 'localidad de tutor',
-  `PROVINCIA` varchar(50) NOT NULL COMMENT 'provincia de tutor',
-  `ID_PRINCIPAL` bigint(20) NOT NULL COMMENT 'id de usuario responsable'
+  `APELLIDOS` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `EMAIL` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `NUM_TLFN` varchar(9) NOT NULL COMMENT 'nombre de tutor',
+  `DNI` varchar(10) NOT NULL COMMENT 'nombre de tutor',
+  `DIRECCION` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `DIRECCION2` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `CP` varchar(5) NOT NULL COMMENT 'nombre de tutor',
+  `LOCALIDAD` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `PROVINCIA` varchar(50) NOT NULL COMMENT 'nombre de tutor',
+  `ID_PRINCIPAL` bigint(20) NOT NULL COMMENT 'nombre de tutor'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tutores`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -338,6 +309,7 @@ CREATE TABLE `usuarios` (
 --
 -- Volcado de datos para la tabla `usuarios`
 --
+
 --
 -- Índices para tablas volcadas
 --
@@ -347,18 +319,6 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `categorias_act`
   ADD PRIMARY KEY (`CD_CATEGORIA`);
-
---
--- Indices de la tabla `dnis_ninos`
---
-ALTER TABLE `dnis_ninos`
-  ADD PRIMARY KEY (`ID_NINO`);
-
---
--- Indices de la tabla `dnis_usuarios`
---
-ALTER TABLE `dnis_usuarios`
-  ADD PRIMARY KEY (`ID_USUARIO`);
 
 --
 -- Indices de la tabla `estados_reserva`
@@ -444,13 +404,13 @@ ALTER TABLE `ninos`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `ID_RESERVA` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Autoincremental de la reserva para llevar un histórico del numero de reservas realizadas', AUTO_INCREMENT=12;
+  MODIFY `ID_RESERVA` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Autoincremental de la reserva para llevar un histórico del numero de reservas realizadas', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `tutores`
 --
 ALTER TABLE `tutores`
-  MODIFY `ID_TUTOR` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID autoincremental para referencias', AUTO_INCREMENT=3;
+  MODIFY `ID_TUTOR` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID autoincremental para referencias', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -461,18 +421,6 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `dnis_ninos`
---
-ALTER TABLE `dnis_ninos`
-  ADD CONSTRAINT `FK_NINO_DNI` FOREIGN KEY (`ID_NINO`) REFERENCES `ninos` (`ID_NINO`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `dnis_usuarios`
---
-ALTER TABLE `dnis_usuarios`
-  ADD CONSTRAINT `DNI_USUARIO` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuarios` (`ID_USUARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `info_sanitaria`
@@ -490,7 +438,8 @@ ALTER TABLE `ninos`
 -- Filtros para la tabla `plazas_act`
 --
 ALTER TABLE `plazas_act`
-  ADD CONSTRAINT `FK_act` FOREIGN KEY (`CD_ACTIVIDAD`) REFERENCES `tipos_act` (`CD_ACTIVIDAD`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_act` FOREIGN KEY (`CD_ACTIVIDAD`) REFERENCES `tipos_act` (`CD_ACTIVIDAD`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_turnos` FOREIGN KEY (`CD_TURNO`) REFERENCES `turnos_act` (`CD_TURNO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `reservas`
@@ -524,9 +473,7 @@ DELIMITER $$
 --
 -- Eventos
 --
--- cambiar 'root' por el usuario correspondiente de la configuracion de la base de datos
-
-CREATE DEFINER=`root`@`%` EVENT `cancelar_automatica` ON SCHEDULE EVERY 1 HOUR STARTS '2023-01-01 00:00:00' ON COMPLETION PRESERVE ENABLE DO UPDATE reservas
+CREATE DEFINER=`root`@`localhost` EVENT `cancelar_automatica` ON SCHEDULE EVERY 1 HOUR STARTS '2023-05-03 00:00:00' ON COMPLETION PRESERVE ENABLE DO UPDATE reservas
 set ESTADO = '3'
 WHERE FH_LIMITE <= CURRENT_TIMESTAMP()
 AND ESTADO = '1'$$
