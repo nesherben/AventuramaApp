@@ -62,7 +62,7 @@ $tutores = $this->d['tutores'];
           <h5 class="card-header">Datos de Tutores adicionales</h5>
           <!-- Datos de los niños -->
           <div class="card-body p-0 h-100 overflex">
-            <?php if (empty($ninos)) : ?>
+            <?php if (empty($tutores)) : ?>
               <p class="text-center text-danger">No hay tutores registrados</p>
             <?php else : ?>
               <div class="overflex h-100">
