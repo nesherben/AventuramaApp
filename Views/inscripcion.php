@@ -351,8 +351,7 @@ $turnos = $this->d['turnos'];
 						</div>
 						<div class="form-group">
 							<label for="antitetanica">¿Ha recibido la vacuna antitetánica? ¿Cuándo?</label>
-							<textarea class="form-control" id="antitetanicaNE" name="antitetanica" rows="2">
-							</textarea>
+							<textarea class="form-control" id="antitetanicaNE" name="antitetanica" rows="2"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="sabe_nadar">¿Sabe nadar? *</label>
