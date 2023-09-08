@@ -163,7 +163,7 @@ CREATE TABLE `reservas` (
   `ID_NINO` bigint(20) NOT NULL COMMENT 'Identificador del niño',
   `CD_ACTIVIDAD` varchar(10) NOT NULL COMMENT 'Actividad',
   `TURNO` char(3) DEFAULT NULL COMMENT 'Turno asociado',
-  `FH_RESERVA` date NOT NULL DEFAULT current_timestamp() COMMENT 'La fecha en la que se efectúa la reserva, no la fercha del campamento en sí',
+  `FH_RESERVA` datetime NOT NULL DEFAULT CURRENT_DATETIME() COMMENT 'La fecha en la que se efectúa la reserva, no la fercha del campamento en sí',
   `FH_LIMITE` date DEFAULT NULL,
   `CONOCIDO` text DEFAULT NULL COMMENT '¿Cómo nos has conocido? (Abierto)',
   `ESTADO` char(1) NOT NULL DEFAULT '0' COMMENT '0 NO VALIDADO, 1 VALIDADO, 2 PAGADO, 3 CANCELADO, 4 REEMBOLSADO, 5 FINALIZADO, 6 EN CURSO, 7 ANTIGUO',
@@ -475,7 +475,7 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` EVENT `cancelar_automatica` ON SCHEDULE EVERY 1 HOUR STARTS '2023-05-03 00:00:00' ON COMPLETION PRESERVE ENABLE DO UPDATE reservas
 set ESTADO = '3'
-WHERE FH_LIMITE <= CURRENT_TIMESTAMP()
+WHERE FH_LIMITE <= CURRENT_DATE()
 AND ESTADO = '1'$$
 
 DELIMITER ;

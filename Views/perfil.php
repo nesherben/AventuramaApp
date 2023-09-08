@@ -533,7 +533,7 @@ $tutores = $this->d['tutores'];
           </div>
           <div class="row">
             <div class="col form-group">
-                <label for="dni">DNI / NIE *</label>
+                <label for="dni">DNI / NIE </label>
                 <input type="text" maxlength="9" class="form-control" id="dni" name="dni">
               </div>
               <!-- <div class="col form-group">
@@ -555,7 +555,7 @@ $tutores = $this->d['tutores'];
           <div class="col-md-6">
             <h4>Información médica del niño</h4>
             <div class="form-group">
-              <label for="tarjeta_sanitaria">Modificar Foto Tarjeta sanitaria*</label>
+              <label for="tarjeta_sanitaria">Modificar Foto Tarjeta sanitaria</label>
               <input type="file" class="form-control" id="tarjeta_sanitariaNE" name="tarjeta">
             </div>
             <div class="form-group">

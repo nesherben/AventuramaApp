@@ -38,7 +38,7 @@ function datosToForm(datos) {
     $("#discapacidadNE").val(info['DISCAPACIDAD']);
     $("#reacciones_alergicasNE").val(info['REAC_ALERGICA']);
     $("#vacunadoNE").val(info['VACUNADO']);
-    $("antitetanicaNE").val(info['ANTITETANICA']);
+    $("#antitetanicaNE").val(info['ANTITETANICA']);
     $("#sabe_nadarNE").val(info['NATACION']);
     $("#aficionesNE").val(info['AFICIONES']);
     $("#observaciones_medNE").val(info['OBSERVACIONES']);
