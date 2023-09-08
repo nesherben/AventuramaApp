@@ -68,5 +68,4 @@ document.querySelectorAll(".checkNino").forEach(check => {
 
     });
 
-    confirmarPago
 });
