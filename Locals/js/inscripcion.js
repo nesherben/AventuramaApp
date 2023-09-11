@@ -32,6 +32,7 @@ function datosToForm(datos) {
     $("#observacionesNE").val(nino['OBSERVACIONES']);
 
     $("#alergias_medicasNE").val(info['ALERGIA_MED']);
+    $("#lesionNE").val(info['LESION']);
     $("#alergias_alimentariasNE").val(info['ALERGIA_ALI']);
     $("#medicacionNE").val(info['MED_ACTUAL']);
     $("#motivo_medicacionNE").val(info['MOTIVO_MED']);

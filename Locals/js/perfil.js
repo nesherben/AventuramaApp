@@ -40,6 +40,7 @@ function datosToForm(datos) {
     var nino = datos.nino;
 
     $("#idNino").val(nino['ID_NINO']);
+    $("#dniNE").val(nino['DNI']);
     $("#nombreNE").val(nino['NOMBRE']);
     $("#apellidosNE").val(nino['APELLIDOS']);
     $("#fechaNacimientoNE").val(nino['FH_NACIMIENTO']);
@@ -60,11 +61,11 @@ function datosToForm(datos) {
     $("#observaciones_medNE").val(info['OBSERVACIONES']);
 
     document.querySelector("#inNombre").innerHTML = nino['NOMBRE'] + " " + nino['APELLIDOS'];
+    document.querySelector("#inDNI").innerHTML = nino['DNI'];
     document.querySelector("#inNacimiento").innerHTML = nino['FH_NACIMIENTO'];
     document.querySelector("#inCentro").innerHTML = nino['CENTRO_ESTUDIOS'];
     document.querySelector("#inObservaciones").innerHTML = nino['OBSERVACIONES'] + " " + info['OBSERVACIONES'];
 
-    // Aquí puedes recibir los archivos de DNI y TS
     document.querySelector("#inAleMedica").innerHTML = info['ALERGIA_MED'];
     document.querySelector("#inAleAlim").innerHTML = info['ALERGIA_ALI'];
     document.querySelector("#inLesion").innerHTML = info['LESION'];

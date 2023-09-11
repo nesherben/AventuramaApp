@@ -285,7 +285,7 @@ $turnos = $this->d['turnos'];
 					<div class="row">
 						<div class="col form-group">
 							<label for="dni">DNI / NIE</label>
-							<input type="text" maxlength="9" class="form-control" id="dni" name="dni" >
+							<input type="text" maxlength="9" class="form-control" id="dniNE" name="dni" >
 						</div>
 						<!-- <div class="col form-group">
 							<label for="dniImg">Modificar Imagen DNI / NIE </label>
@@ -363,7 +363,7 @@ $turnos = $this->d['turnos'];
 						</div>
 						<div class="form-group">
 							<label for="aficiones">Aficiones</label>
-							<textarea class="form-control" id="AficionesNE" name="aficiones" rows="2"></textarea>
+							<textarea class="form-control" id="aficionesNE" name="aficiones" rows="2"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="observaciones">Observaciones</label>

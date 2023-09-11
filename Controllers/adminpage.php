@@ -164,9 +164,9 @@ class Adminpage extends SessionController
         foreach ($ninos as $key => $n) {
             $miPadre = $padre->get($n["ID_PADRE"]);
             $nino->setId($n["ID_NINO"]);
-            array_push($n, $nino->descargarDni() == false ? false : true);
+            array_push($n,  false);
             array_push($n,  $nino->descargarTarjeta() == false ? false : true);
-            array_push($n,  $miPadre->descargarDNI($miPadre->getId()) == false ? false : true);
+            array_push($n,  false );
             $ninos[$key] = $n;
         }
         return $ninos;

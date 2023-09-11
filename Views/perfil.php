@@ -528,7 +528,7 @@ $tutores = $this->d['tutores'];
           <div class="row">
             <div class="col form-group">
                 <label for="dni">DNI / NIE </label>
-                <input type="text" maxlength="9" class="form-control" id="dni" name="dni">
+                <input type="text" maxlength="9" class="form-control" id="dniNE" name="dni">
               </div>
               <!-- <div class="col form-group">
                 <label for="dniImg">Modificar Imagen DNI / NIE </label>
@@ -606,7 +606,7 @@ $tutores = $this->d['tutores'];
             </div>
             <div class="form-group">
               <label for="aficiones">Aficiones</label>
-              <textarea class="form-control" id="AficionesNE" name="aficiones" rows="2"></textarea>
+              <textarea class="form-control" id="AficionesNE" name="aficionesNE" rows="2"></textarea>
             </div>
             <div class="form-group">
               <label for="observaciones">Observaciones</label>
@@ -636,8 +636,10 @@ $tutores = $this->d['tutores'];
 
         <div>
           <div class="card-body overflex">
-            <h6>Nombre y Apellidos</h6>
+          <h6>Nombre y Apellidos</h6>
             <p class="card-text" id="inNombre"></p>
+            <h6>DNI (Si tiene)</h6>
+            <p class="card-text" id="inDNI"></p>
             <h6>Centro estudios</h6>
             <p class="card-text" id="inCentro"></p>
             <h6>Fecha Nacimiento (YYYY/MM/DD)</h6>
