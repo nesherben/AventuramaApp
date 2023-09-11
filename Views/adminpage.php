@@ -415,6 +415,8 @@ $ninos = $this->d['ninos'];
           <div class="card-body overflex">
             <h6>Nombre y Apellidos</h6>
             <p class="card-text" id="inNombre"></p>
+            <h6>DNI (Si tiene)</h6>
+            <p class="card-text" id="inDNI"></p>
             <h6>Centro estudios</h6>
             <p class="card-text" id="inCentro"></p>
             <h6>Fecha Nacimiento (YYYY/MM/DD)</h6>

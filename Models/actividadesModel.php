@@ -262,8 +262,8 @@ class ActividadesModel extends Model
       ]);
 
       //SOLO DEBERIA SACAR LOS 2 ESTADOS QUE SE HAN CAMBIADO
-      $query2 = $this->prepare('SELECT EMAIL, ESTADO FROM USUARIOS U JOIN reservas R ON R.ID_USUARIO = U.ID_USUARIO WHERE CD_ACTIVIDAD = :id and turno = :turno
-      and ESTADO = 5 or ESTADO = 6');
+      $query2 = $this->prepare('SELECT U.EMAIL, R.ESTADO FROM USUARIOS U JOIN reservas R ON R.ID_USUARIO = U.ID_USUARIO WHERE CD_ACTIVIDAD = :id and turno = :turno
+      and R.ESTADO = 5 or R.ESTADO = 6');
       $query2->execute([
         'id' => $codigo,
         'turno' => $turno

@@ -119,6 +119,7 @@ function datosToModalInfo(datos) {
     /////////
 
     document.querySelector("#inNombre").innerHTML = datos['nino']["NOMBRE"] + " " + datos['nino']['APELLIDOS'];
+    document.querySelector("#inDNI").innerHTML = datos['nino']["DNI"];
     document.querySelector("#inCentro").innerHTML = datos['nino']["CENTRO_ESTUDIOS"];
     document.querySelector("#inNacimiento").innerHTML = datos['nino']["FH_NACIMIENTO"];
     document.querySelector("#inAleMedica").innerHTML = datos['ninoSan']["ALERGIA_MED"];
