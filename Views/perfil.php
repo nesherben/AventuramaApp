@@ -606,7 +606,7 @@ $tutores = $this->d['tutores'];
             </div>
             <div class="form-group">
               <label for="aficiones">Aficiones</label>
-              <textarea class="form-control" id="AficionesNE" name="aficionesNE" rows="2"></textarea>
+              <textarea class="form-control" id="aficionesNE" name="aficionesNE" rows="2"></textarea>
             </div>
             <div class="form-group">
               <label for="observaciones">Observaciones</label>
