@@ -74,15 +74,15 @@ INSERT INTO `estados_reserva` (`CD_ESTADO`, `DS_ESTADO`) VALUES
 
 CREATE TABLE `info_sanitaria` (
   `ID_NINO` bigint(20) NOT NULL,
-  `ALERGIA_MED` varchar(100) DEFAULT NULL COMMENT '¿Presenta alergia y/o intolerancia a algún medicamento? En caso afirmativo, ¿de cuál se trata?',
-  `ALERGIA_ALI` varchar(100) DEFAULT NULL COMMENT '¿Tiene alergia y/o intolerancia a algún alimento? En caso afirmativo, ¿de cuál se trata?',
-  `LESION` varchar(100) DEFAULT NULL COMMENT '¿Ha sufrido alguna lesión recientemente? En caso afirmativo, señalar la fecha de producción y la zona afectada:',
-  `MED_ACTUAL` varchar(100) DEFAULT NULL COMMENT '¿Se le está suministrando alguna medicación actualmente? En caso afirmativo, ¿de qué medicamento se trata?',
+  `ALERGIA_MED` text DEFAULT NULL COMMENT '¿Presenta alergia y/o intolerancia a algún medicamento? En caso afirmativo, ¿de cuál se trata?',
+  `ALERGIA_ALI` text DEFAULT NULL COMMENT '¿Tiene alergia y/o intolerancia a algún alimento? En caso afirmativo, ¿de cuál se trata?',
+  `LESION` text DEFAULT NULL COMMENT '¿Ha sufrido alguna lesión recientemente? En caso afirmativo, señalar la fecha de producción y la zona afectada:',
+  `MED_ACTUAL` text DEFAULT NULL COMMENT '¿Se le está suministrando alguna medicación actualmente? En caso afirmativo, ¿de qué medicamento se trata?',
   `MOTIVO_MED` text DEFAULT NULL COMMENT '¿por qué se le administra medicación?',
-  `DISCAPACIDAD` varchar(100) DEFAULT NULL COMMENT '¿Tiene alguna minusvalía? En caso afirmativo, ¿de qué se trata?',
-  `REAC_ALERGICA` char(2) NOT NULL DEFAULT 'NO' COMMENT '¿Ha padecido alguna reacción alérgica? (si o no)',
+  `DISCAPACIDAD` text DEFAULT NULL COMMENT '¿Tiene alguna minusvalía? En caso afirmativo, ¿de qué se trata?',
+  `REAC_ALERGICA` text NOT NULL COMMENT '¿Ha padecido alguna reacción alérgica? (si o no)',
   `VACUNADO` char(2) NOT NULL DEFAULT 'NO' COMMENT '¿Tiene todas las vacunas correspondientes a su edad?',
-  `ANTITETANICA` varchar(100) DEFAULT 'NO' COMMENT '¿Ha sido tratado con la antitetánica? En caso afirmativo, indique la fecha',
+  `ANTITETANICA` text DEFAULT 'NO' COMMENT '¿Ha sido tratado con la antitetánica? En caso afirmativo, indique la fecha',
   `NATACION` char(2) NOT NULL DEFAULT 'NO' COMMENT '¿Sabe nadar?',
   `AFICIONES` text DEFAULT NULL COMMENT '¿Cuáles son sus aficiones favoritas?',
   `OBSERVACIONES` text DEFAULT NULL COMMENT 'Anote todo lo que considere que debamos saber para un mejor conocimiento del participante:'
@@ -183,7 +183,7 @@ CREATE TABLE `reservas` (
 CREATE TABLE `tarjetas_sanitarias` (
   `ID_NINO` bigint(20) NOT NULL,
   `TARJETA` longblob NOT NULL,
-  `NM_ARCHIVO` varchar(200) NOT NULL,
+  `NM_ARCHIVO` varchar(250) NOT NULL,
   `TIPO_ARCHIVO` varchar(30) NOT NULL,
   `SIZE_ARCHIVO` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
