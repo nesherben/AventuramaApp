@@ -118,7 +118,7 @@ class UserModel extends Model
             $this->setCp($p['CP']);
             $this->setLocalidad($p['LOCALIDAD']);
             $this->setProvincia($p['PROVINCIA']);
-            $this->tieneDNI = $this->descargarDNI($id) != false ? true : false;
+            $this->tieneDNI = false;
             $this->from($p);
             return $this;
         } catch (PDOException $e) {

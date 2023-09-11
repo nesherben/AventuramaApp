@@ -285,48 +285,48 @@ class perfil extends SessionController
     }
 
 
-    function DescargarDniUsuario()
-    {
-        //funcion para descargar el dni del usuario
-        $user = new UserModel();
-        $data = $user->descargarDNI($_SESSION['user']);
-        if (!$data) {
-            error_log("Inscripcion::DescargarDniUsuario -> No se ha podido descargar el dni");
-            $this->redirect('perfil', ['error' => 'No se ha podido descargar el dni']);
-            return false;
-        }
-        header("Content-type: " . $data["TIPO_ARCHIVO"]);
-        header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
-        header("Content-Length: " . $data["SIZE_ARCHIVO"]);
-        ob_clean();
-        $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
-        fpassthru($stream);
-        fclose($stream);
-        // Enviar los datos binarios de la imagen al navegador
-        exit;
-    }
-    function DescargarDniNino()
-    {
-        //funcion para descargar el dni del niño
-        $nino = new NinoModel();
-        $nino->setId($_POST["idNino"]);
-        $data = $nino->descargarDNI();
-        if (!$data) {
-            error_log("Inscripcion::DescargarDniUsuario -> No se ha podido descargar el dni");
-            $this->redirect('perfil', ['error' => 'No se ha podido descargar el dni']);
-            return false;
-        }
-         header("Content-type: " . $data["TIPO_ARCHIVO"]);
-         header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
-         header("Content-Length: " . $data["SIZE_ARCHIVO"]);
+    // function DescargarDniUsuario()
+    // {
+    //     //funcion para descargar el dni del usuario
+    //     $user = new UserModel();
+    //     $data = false;
+    //     if (!$data) {
+    //         error_log("Inscripcion::DescargarDniUsuario -> No se ha podido descargar el dni");
+    //         $this->redirect('perfil', ['error' => 'No se ha podido descargar el dni']);
+    //         return false;
+    //     }
+    //     header("Content-type: " . $data["TIPO_ARCHIVO"]);
+    //     header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
+    //     header("Content-Length: " . $data["SIZE_ARCHIVO"]);
+    //     ob_clean();
+    //     $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+    //     fpassthru($stream);
+    //     fclose($stream);
+    //     // Enviar los datos binarios de la imagen al navegador
+    //     exit;
+    // }
+    // function DescargarDniNino()
+    // {
+    //     //funcion para descargar el dni del niño
+    //     $nino = new NinoModel();
+    //     $nino->setId($_POST["idNino"]);
+    //     $data = false;
+    //     if (!$data) {
+    //         error_log("Inscripcion::DescargarDniUsuario -> No se ha podido descargar el dni");
+    //         $this->redirect('perfil', ['error' => 'No se ha podido descargar el dni']);
+    //         return false;
+    //     }
+    //      header("Content-type: " . $data["TIPO_ARCHIVO"]);
+    //      header("Content-Disposition: attachment; filename=\"" . $data["NM_ARCHIVO"] . "\"");
+    //      header("Content-Length: " . $data["SIZE_ARCHIVO"]);
         
-         ob_clean();
-         $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
-         fpassthru($stream);
-         fclose($stream);
-         // Enviar los datos binarios de la imagen al navegador
-         exit;
-        }
+    //      ob_clean();
+    //      $stream = fopen('data://application/octet-stream;base64,' . base64_encode($data["DNI"]), 'r');
+    //      fpassthru($stream);
+    //      fclose($stream);
+    //      // Enviar los datos binarios de la imagen al navegador
+    //      exit;
+    //     }
     function DescargarTSNino()
     {
         //funcion para descargar la tarjeta sanitaria
