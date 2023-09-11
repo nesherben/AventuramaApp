@@ -25,7 +25,7 @@ class perfil extends SessionController
         $ninos = $nino->getNinos();
         foreach ($ninos as $key => $n) {
             $nino->setId($n["ID_NINO"]);
-            array_push($n, $nino->descargarDni() == false ? false : true);
+            array_push($n,  false );
             array_push($n,  $nino->descargarTarjeta() == false ? false : true);
             $ninos[$key] = $n;
         }
@@ -144,9 +144,9 @@ class perfil extends SessionController
                 return false;
             };
             //para los archivos
-            if ($_FILES["dniImg"]["name"] != "") {
-                $nino->guardarDNI($id, $_FILES["dniImg"]);
-            }
+            // if ($_FILES["dniImg"]["name"] != "") {
+            //     $nino->guardarDNI($id, $_FILES["dniImg"]);
+            // }
             if ($_FILES["tarjeta"]["name"] != "") {
                 $info->guardarTarjeta($id, $_FILES["tarjeta"]);
             }
@@ -204,9 +204,9 @@ class perfil extends SessionController
                 return false;
             }
             //para los archivos
-            if ($_FILES["dniImg"]["name"] != "") {
-                $nino->guardarDNI($id, $_FILES["dniImg"]);
-            }
+            // if ($_FILES["dniImg"]["name"] != "") {
+            //     $nino->guardarDNI($id, $_FILES["dniImg"]);
+            // }
             if ($_FILES["tarjeta"]["name"] != "") {
                 $info->guardarTarjeta($id, $_FILES["tarjeta"]);
             }
@@ -427,9 +427,9 @@ class perfil extends SessionController
                 $this->redirect('perfil', ['error' => 'No se ha podido actualizar la información del usuario']);
             }
 
-            if ($_FILES["dniImg"]["name"] != "") {
-                $user->guardarDNI($id, $_FILES["dniImg"]);
-            }
+            // if ($_FILES["dniImg"]["name"] != "") {
+            //     $user->guardarDNI($id, $_FILES["dniImg"]);
+            // }
 
             $this->redirect('perfil', ['success' => 'Se ha actualizado la información del usuario']);
         }

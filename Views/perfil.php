@@ -25,11 +25,9 @@ $tutores = $this->d['tutores'];
             <h6>Teléfono de contacto:</h6>
             <p class="card-text"><?php echo $user->telefono ?></p>
             <h6>DNI/NIE:</h6>
-            <?php if ($user->tieneDNI) : ?>
-              <a href="perfil/DescargarDniUsuario" class="card-text mb-2"><?php echo $user->dni ?></a>
-            <?php else : ?>
+            
               <p class="card-text mb-2"><?php echo $user->dni ?></p>
-            <?php endif; ?>
+            
             <h6>Dirección completa:</h6>
             <p class="card-text"><?php echo $user->direccion . ", " .  ($user->direccion2 ?? "") ?></p>
 
@@ -165,11 +163,7 @@ $tutores = $this->d['tutores'];
                               <div class="d-flex flex-nowrap gap-1">
                                 <button class="btn btn-sm btn-primary btnNino" data-bs-target="#editNino" data-bs-toggle="modal" value="<?php echo $nino["ID_NINO"] ?>">Editar</button>
                                 <button class="btn text-nowrap btn-sm btn-primary btnNino" data-bs-target="#infoNino" data-bs-toggle="modal" value="<?php echo $nino["ID_NINO"] ?>">Ver info.</button>
-                                <?php if ($nino["0"] == 'true') : ?>
-                                  <form action="perfil/DescargarDniNino" method="POST">
-                                    <button class="btn btn-sm btn-light" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">DNI</button>
-                                  </form>
-                                <?php endif; ?>
+                                
                                 <?php if ($nino["1"] == 'true') : ?>
                                   <form action="perfil/DescargarTSNino" method="POST">
                                     <button class="btn btn-sm btn-light text-nowrap" name="idNino" value="<?php echo $nino["ID_NINO"] ?>" type="submit">Tarj. San.</button>

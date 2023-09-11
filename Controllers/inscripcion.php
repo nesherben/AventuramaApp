@@ -74,9 +74,9 @@ class Inscripcion extends SessionController{
                 return false;
             };
             //para los archivos
-            if($_FILES["dniImg"]["name"]!=""){
-                $nino->guardarDNI($id,$_FILES["dniImg"]);  
-            }
+            // if($_FILES["dniImg"]["name"]!=""){
+            //     $nino->guardarDNI($id,$_FILES["dniImg"]);  
+            // }
             if($_FILES["tarjeta"]["name"]!=""){  
                 $info->guardarTarjeta($id,$_FILES["tarjeta"]);
             }
@@ -150,9 +150,9 @@ class Inscripcion extends SessionController{
                 return false;
             }
             //para los archivos
-            if($_FILES["dniImg"]["name"]!=""){
-                $nino->guardarDNI($id,$_FILES["dniImg"]);  
-            }
+            // if($_FILES["dniImg"]["name"]!=""){
+            //     $nino->guardarDNI($id,$_FILES["dniImg"]);  
+            // }
             if($_FILES["tarjeta"]["name"]!=""){  
                 $info->guardarTarjeta($id,$_FILES["tarjeta"]);
             }
