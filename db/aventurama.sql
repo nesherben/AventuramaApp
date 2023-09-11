@@ -80,9 +80,9 @@ CREATE TABLE `info_sanitaria` (
   `MED_ACTUAL` text DEFAULT NULL COMMENT '¿Se le está suministrando alguna medicación actualmente? En caso afirmativo, ¿de qué medicamento se trata?',
   `MOTIVO_MED` text DEFAULT NULL COMMENT '¿por qué se le administra medicación?',
   `DISCAPACIDAD` text DEFAULT NULL COMMENT '¿Tiene alguna minusvalía? En caso afirmativo, ¿de qué se trata?',
-  `REAC_ALERGICA` text NOT NULL COMMENT '¿Ha padecido alguna reacción alérgica? (si o no)',
+  `REAC_ALERGICA` varchar(500) NOT NULL  DEFAULT 'NO'  COMMENT '¿Ha padecido alguna reacción alérgica? (si o no)',
   `VACUNADO` char(2) NOT NULL DEFAULT 'NO' COMMENT '¿Tiene todas las vacunas correspondientes a su edad?',
-  `ANTITETANICA` text DEFAULT 'NO' COMMENT '¿Ha sido tratado con la antitetánica? En caso afirmativo, indique la fecha',
+  `ANTITETANICA` varchar(100) DEFAULT 'NO' COMMENT '¿Ha sido tratado con la antitetánica? En caso afirmativo, indique la fecha',
   `NATACION` char(2) NOT NULL DEFAULT 'NO' COMMENT '¿Sabe nadar?',
   `AFICIONES` text DEFAULT NULL COMMENT '¿Cuáles son sus aficiones favoritas?',
   `OBSERVACIONES` text DEFAULT NULL COMMENT 'Anote todo lo que considere que debamos saber para un mejor conocimiento del participante:'
