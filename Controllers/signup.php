@@ -121,11 +121,11 @@ class Signup extends SessionController{
         $email = $params['email'];
         $activation_code = $params['activation_code'];
         if(!isset($email) || !isset($activation_code)){
-            $this->redirect('', ['error' => 'Invalid activation link']);
+            $this->redirect('', ['error' => 'Activación incorrecta']);
         }
         // call the activate() method from the UserModel class
         if($this->user->activate($email, $activation_code)){
-            $this->redirect('', ['success' => 'Your account has been activated. You can now log in.']);
+            $this->redirect('', ['success' => 'Tu cuenta ha sido activada, ahora puedes iniciar sesión.']);
         }
     }
 }

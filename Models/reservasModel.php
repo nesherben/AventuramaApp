@@ -22,7 +22,7 @@ class reservasModel extends Model
     $this->conocido = "";
     $this->fecha = "";
     $this->estado = "";
-    $this->precio = "";
+    $this->precio = 0;
   }
 
   public function get($id)
@@ -207,7 +207,7 @@ class reservasModel extends Model
       $query->execute([
         'estado' => $this->estado,
         'id' => $this->id,
-        'precio' => $this->precio ?? '0'
+        'precio' => ($this->precio = ''? null : $this->precio) ?? 0
       ]);
 
       $query2 = $this->prepare('SELECT EMAIL FROM usuarios U JOIN reservas R ON R.ID_USUARIO = U.ID_USUARIO WHERE ID_RESERVA = :id');
